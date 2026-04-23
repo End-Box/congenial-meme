@@ -1,0 +1,8 @@
+{
+  "uid": "greengages-theme",
+  "type": "theme",
+  "config": {
+    "themePath": "greengages-theme",
+    "secretNames": []
+  }
+}

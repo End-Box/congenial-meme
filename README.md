@@ -5,21 +5,23 @@ A calm, editorial HubSpot CMS theme built with HubL templates and custom modules
 ## Local workflow
 
 1. Authenticate HubSpot CLI.
-2. Upload/watch this folder:
+2. Upload from the project root with projects framework commands:
 
 ```bash
-hs upload . <portal_name>/green-gage-theme
-hs watch . <portal_name>/green-gage-theme
+hs project upload
 ```
 
 ## Structure
 
-- `templates/`: page templates and shared base layout.
-- `partials/`: shared fragments (`header`, `footer`, and `nav-list`) plus macros.
-- `modules/`: reusable custom modules with fields/meta/html/css.
-- `css/`: base/components/utilities style architecture.
-- `fields.json`: theme settings.
-- `theme.json`: theme manifest.
+- `src/theme/greengages-theme-hsmeta.json`: theme component config for projects framework.
+- `src/theme/greengages-theme/`: actual HubSpot theme folder containing:
+  - `templates/`: page templates and shared base layout.
+  - `partials/`: shared fragments and macros.
+  - `modules/`: reusable custom modules with fields/meta/html/css.
+  - `css/`: base/components/utilities style architecture.
+  - `js/` and `assets/`: static/supporting files.
+  - `fields.json`: theme settings.
+  - `theme.json`: theme manifest.
 - `hsproject.json`: CLI project metadata.
 
 ## Refactor notes
