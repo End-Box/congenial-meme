@@ -1,8 +1,9 @@
 {% macro href(link_field) %}
-  {% set resolved = link_field.url.href|default('') %}
-  {% if link_field.url.type == 'EMAIL_ADDRESS' and resolved %}
+  {% set resolved = link_field.href|default(link_field.url.href|default('')) %}
+  {% set link_type = link_field.type|default(link_field.url.type|default('EXTERNAL')) %}
+  {% if link_type == 'EMAIL_ADDRESS' and resolved %}
     {% set resolved = 'mailto:' ~ resolved %}
-  {% elif link_field.url.type == 'PHONE_NUMBER' and resolved %}
+  {% elif link_type == 'PHONE_NUMBER' and resolved %}
     {% set resolved = 'tel:' ~ resolved %}
   {% endif %}
   {{ resolved }}

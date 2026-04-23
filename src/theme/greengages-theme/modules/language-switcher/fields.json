@@ -1,11 +1,69 @@
 [
-  {"name":"style_variant","label":"Style variant","type":"choice","display":"select","choices":[["minimal","Minimal"],["button","Button"]],"default":"minimal"},
-  {"name":"label","label":"Accessible label","type":"text","default":"Select language"},
-  {"name":"languages","label":"Language options","type":"group","occurrence":{"min":1,"max":8,"default":2,"sorting_label_field":"label"},"children":[
-    {"name":"label","label":"Label","type":"text","default":"EN"},
-    {"name":"url","label":"URL","type":"link","supported_types":["EXTERNAL","CONTENT"]}
-  ],"default":[
-    {"label":"EN","url":{"url":{"href":"/","type":"EXTERNAL"}}},
-    {"label":"ES","url":{"url":{"href":"/es","type":"EXTERNAL"}}}
-  ]}
+  {
+    "name": "style_variant",
+    "label": "Style variant",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "minimal",
+        "Minimal"
+      ],
+      [
+        "button",
+        "Button"
+      ]
+    ],
+    "default": "minimal"
+  },
+  {
+    "name": "label",
+    "label": "Accessible label",
+    "type": "text",
+    "default": "Select language"
+  },
+  {
+    "name": "languages",
+    "label": "Language options",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 2,
+      "sorting_label_field": "label"
+    },
+    "children": [
+      {
+        "name": "label",
+        "label": "Label",
+        "type": "text",
+        "default": "EN"
+      },
+      {
+        "name": "url",
+        "label": "URL",
+        "type": "url",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ]
+      }
+    ],
+    "default": [
+      {
+        "label": "EN",
+        "url": {
+          "href": "/",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "label": "ES",
+        "url": {
+          "href": "/es",
+          "type": "EXTERNAL"
+        }
+      }
+    ]
+  }
 ]

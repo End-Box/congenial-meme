@@ -2,7 +2,12 @@
   <div class="container site-footer__inner">
     <p class="site-footer__reflection">A hub of pathways for inquiry, language, and thoughtful practice.</p>
     <nav aria-label="Footer navigation">
-      {% include './nav-list.html' with {'nav_items': theme.navigation.footer_links, 'menu_class': 'site-footer__menu'} %}
+      <ul class="site-footer__menu">
+        <li><a href="/disclaimer">Disclaimer</a></li>
+        <li><a href="/consulting">Consulting</a></li>
+        <li><a href="/start-here">Start Here</a></li>
+        <li><a href="/ecosystem">Ecosystem</a></li>
+      </ul>
     </nav>
     <p class="site-footer__meta">© {{ local_dt.year }} {{ site_settings.company_name|default('Green Gage') }}</p>
   </div>

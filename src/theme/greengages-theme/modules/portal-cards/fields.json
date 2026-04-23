@@ -58,7 +58,7 @@
       {
         "name": "link",
         "label": "Link",
-        "type": "link",
+        "type": "url",
         "supported_types": [
           "EXTERNAL",
           "CONTENT",
@@ -71,40 +71,32 @@
         "title": "Writing",
         "description": "Essays and field notes.",
         "link": {
-          "url": {
-            "href": "/blog",
-            "type": "EXTERNAL"
-          }
+          "href": "/blog",
+          "type": "EXTERNAL"
         }
       },
       {
         "title": "Research",
         "description": "Inquiries and working papers.",
         "link": {
-          "url": {
-            "href": "/ecosystem",
-            "type": "EXTERNAL"
-          }
+          "href": "/ecosystem",
+          "type": "EXTERNAL"
         }
       },
       {
         "title": "Glossary",
         "description": "Language to think with.",
         "link": {
-          "url": {
-            "href": "/glossary",
-            "type": "EXTERNAL"
-          }
+          "href": "/glossary",
+          "type": "EXTERNAL"
         }
       },
       {
         "title": "Podcast / Video",
         "description": "Conversations and recordings.",
         "link": {
-          "url": {
-            "href": "/media",
-            "type": "EXTERNAL"
-          }
+          "href": "/media",
+          "type": "EXTERNAL"
         }
       }
     ]

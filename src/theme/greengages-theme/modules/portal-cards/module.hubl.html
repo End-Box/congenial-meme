@@ -1,5 +1,5 @@
-{% import '../../partials/macros/link-utils.html' as link_utils %}
-{% import '../../partials/macros/section-utils.html' as section_utils %}
+{% import '../../partials/macros/link-utils.hubl.html' as link_utils %}
+{% import '../../partials/macros/section-utils.hubl.html' as section_utils %}
 <section {{ section_utils.attrs(module.section_id, 'section', module.region_label) }}>
   <div class="container flow flow-lg">
     <h2 class="section-heading">{{ module.heading }}</h2>
@@ -8,7 +8,7 @@
         <article class="surface-card flow flow-sm">
           <h3>{{ card.title }}</h3>
           {% if card.description %}<p class="section-body">{{ card.description }}</p>{% endif %}
-          {% if card.link.url.href %}
+          {% if card.link.href %}
             {% set href = link_utils.href(card.link)|trim %}
             {% set rel = link_utils.rel_attr(card.link)|trim %}
             <a class="button" href="{{ href }}"

@@ -1,7 +1,7 @@
-{% import './macros/link-utils.html' as link_utils %}
+{% import './macros/link-utils.hubl.html' as link_utils %}
 <ul class="{{ menu_class }}">
   {% for item in nav_items %}
-    {% if item.url.url.href and item.label %}
+    {% if item.url.href and item.label %}
       {% set href = link_utils.href(item.url)|trim %}
       {% set rel = link_utils.rel_attr(item.url)|trim %}
       <li>
@@ -9,7 +9,7 @@
         <a href="{{ href }}"
            {% if item.url.open_in_new_tab %}target="_blank"{% endif %}
            {% if rel %}rel="{{ rel }}"{% endif %}
-           {% if current_path and (current_path == item.url.url.href) %}aria-current="page"{% endif %}>
+           {% if current_path and (current_path == item.url.href) %}aria-current="page"{% endif %}>
           {{ item.label }}
         </a>
       </li>

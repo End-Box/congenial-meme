@@ -41,17 +41,15 @@
   {
     "name": "cta_link",
     "label": "Button link",
-    "type": "link",
+    "type": "url",
     "supported_types": [
       "EXTERNAL",
       "CONTENT",
       "BLOG"
     ],
     "default": {
-      "url": {
-        "href": "/start-here",
-        "type": "EXTERNAL"
-      }
+      "href": "/start-here",
+      "type": "EXTERNAL"
     }
   }
 ]
