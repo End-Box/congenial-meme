@@ -35,7 +35,7 @@
   {
     "name": "subtitle",
     "label": "Poetic subtitle",
-    "type": "textarea",
+    "type": "text",
     "default": "This is a living portal for research notes, contemplative writing, glossary pathways, and conversations in consciousness studies."
   },
   {

@@ -38,8 +38,8 @@
     "default": "About this website"
   },
   {
-    "name": "body",
-    "label": "Body content",
+    "name": "content",
+    "label": "Section content",
     "type": "richtext",
     "default": "<p>Use this module for editorial sections, essays, and reflective context.</p>"
   }

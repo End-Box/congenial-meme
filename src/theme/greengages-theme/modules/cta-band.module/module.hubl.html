@@ -1,14 +1,10 @@
-{% import '../../partials/macros/link-utils.hubl.html' as link_utils %}
-{% import '../../partials/macros/section-utils.hubl.html' as section_utils %}
-<section {{ section_utils.attrs(module.section_id, 'section', module.region_label) }}>
+<section class="section" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
   <div class="container surface-card cta-band cta-band--{{ module.style_variant }}">
     <h2>{{ module.heading }}</h2>
     {% if module.cta_text and module.cta_link.href %}
-      {% set href = link_utils.href(module.cta_link)|trim %}
-      {% set rel = link_utils.rel_attr(module.cta_link)|trim %}
-      <a class="button button--primary" href="{{ href }}"
+      <a class="button button--primary" href="{{ module.cta_link.href }}"
          {% if module.cta_link.open_in_new_tab %}target="_blank"{% endif %}
-         {% if rel %}rel="{{ rel }}"{% endif %}>
+         {% if module.cta_link.no_follow %}rel="nofollow noopener"{% endif %}>
         {{ module.cta_text }}
       </a>
     {% endif %}

@@ -1,16 +1,11 @@
-{% import '../../partials/macros/link-utils.hubl.html' as link_utils %}
-<nav class="language-switcher language-switcher--{{ module.style_variant }}" aria-label="{{ module.label|default('Select language') }}">
-    <ul>
+<nav class="language-switcher language-switcher--{{ module.style_variant }}" aria-label="{{ module.aria_label|default('Select language') }}">
+  <ul>
     {% for item in module.languages %}
-      {% if item.url.href and item.label %}
-        {% set href = link_utils.href(item.url)|trim %}
-        {% set rel = link_utils.rel_attr(item.url)|trim %}
+      {% if item.url.href and item.name %}
         <li>
-          <a href="{{ href }}"
+          <a href="{{ item.url.href }}"
              {% if item.url.open_in_new_tab %}target="_blank"{% endif %}
-             {% if rel %}rel="{{ rel }}"{% endif %}>
-            {{ item.label }}
-          </a>
+             {% if item.url.no_follow %}rel="nofollow noopener"{% endif %}>{{ item.name }}</a>
         </li>
       {% endif %}
     {% endfor %}

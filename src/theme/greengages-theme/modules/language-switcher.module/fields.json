@@ -17,7 +17,7 @@
     "default": "minimal"
   },
   {
-    "name": "label",
+    "name": "aria_label",
     "label": "Accessible label",
     "type": "text",
     "default": "Select language"
@@ -34,8 +34,8 @@
     },
     "children": [
       {
-        "name": "label",
-        "label": "Label",
+        "name": "name",
+        "label": "Language name",
         "type": "text",
         "default": "EN"
       },
@@ -51,18 +51,18 @@
     ],
     "default": [
       {
-        "label": "EN",
         "url": {
           "href": "/",
           "type": "EXTERNAL"
-        }
+        },
+        "name": "EN"
       },
       {
-        "label": "ES",
         "url": {
           "href": "/es",
           "type": "EXTERNAL"
-        }
+        },
+        "name": "ES"
       }
     ]
   }

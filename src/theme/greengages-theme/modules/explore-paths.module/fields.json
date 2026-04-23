@@ -52,7 +52,7 @@
       {
         "name": "summary",
         "label": "Summary",
-        "type": "textarea",
+        "type": "text",
         "default": "A practical first move for readers."
       }
     ],

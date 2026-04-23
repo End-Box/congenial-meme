@@ -1,6 +1,4 @@
-{% import '../../partials/macros/link-utils.hubl.html' as link_utils %}
-{% import '../../partials/macros/section-utils.hubl.html' as section_utils %}
-<section {{ section_utils.attrs(module.section_id, 'section', module.region_label) }}>
+<section class="section" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
   <div class="container flow flow-lg">
     <h2 class="section-heading">{{ module.heading }}</h2>
     <div class="card-grid card-grid--three portal-cards portal-cards--{{ module.style_variant }}">
@@ -9,13 +7,9 @@
           <h3>{{ card.title }}</h3>
           {% if card.description %}<p class="section-body">{{ card.description }}</p>{% endif %}
           {% if card.link.href %}
-            {% set href = link_utils.href(card.link)|trim %}
-            {% set rel = link_utils.rel_attr(card.link)|trim %}
-            <a class="button" href="{{ href }}"
+            <a class="button" href="{{ card.link.href }}"
                {% if card.link.open_in_new_tab %}target="_blank"{% endif %}
-               {% if rel %}rel="{{ rel }}"{% endif %}>
-              Explore
-            </a>
+               {% if card.link.no_follow %}rel="nofollow noopener"{% endif %}>Explore</a>
           {% endif %}
         </article>
       {% endfor %}

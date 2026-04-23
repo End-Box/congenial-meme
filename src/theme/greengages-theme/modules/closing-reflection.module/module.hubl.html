@@ -1,5 +1,4 @@
-{% import '../../partials/macros/section-utils.hubl.html' as section_utils %}
-<section {{ section_utils.attrs(module.section_id, 'section closing-reflection closing-reflection--' ~ module.style_variant, module.region_label) }}>
+<section class="section closing-reflection closing-reflection--{{ module.style_variant }}" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
   <div class="container flow flow-md">
     <h2 class="section-heading">{{ module.heading }}</h2>
     <p class="section-body">{{ module.reflection }}</p>

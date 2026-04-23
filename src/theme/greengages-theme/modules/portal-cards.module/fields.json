@@ -52,7 +52,7 @@
       {
         "name": "description",
         "label": "Description",
-        "type": "textarea",
+        "type": "text",
         "default": "A concise summary of this pathway."
       },
       {

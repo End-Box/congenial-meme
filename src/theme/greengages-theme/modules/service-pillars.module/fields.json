@@ -52,7 +52,7 @@
       {
         "name": "description",
         "label": "Pillar description",
-        "type": "textarea",
+        "type": "text",
         "default": "Describe this consulting focus area."
       }
     ],

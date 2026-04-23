@@ -35,7 +35,7 @@
   {
     "name": "reflection",
     "label": "Reflection text",
-    "type": "textarea",
+    "type": "text",
     "default": "Take what is useful, return when needed, and continue the work of attentive thought."
   }
 ]
