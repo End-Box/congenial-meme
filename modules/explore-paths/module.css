@@ -1,0 +1,2 @@
+.explore-paths__list { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.8rem; }
+.explore-paths--lined .explore-paths__list li { border-left: 3px solid var(--color-border); }

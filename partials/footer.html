@@ -1,0 +1,9 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container site-footer__inner">
+    <p class="site-footer__reflection">A hub of pathways for inquiry, language, and thoughtful practice.</p>
+    <nav aria-label="Footer navigation">
+      {% include './nav-list.html' with {'nav_items': theme.navigation.footer_links, 'menu_class': 'site-footer__menu'} %}
+    </nav>
+    <p class="site-footer__meta">© {{ local_dt.year }} {{ site_settings.company_name|default('Green Gage') }}</p>
+  </div>
+</footer>

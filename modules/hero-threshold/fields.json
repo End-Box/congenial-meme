@@ -1,0 +1,63 @@
+[
+  {
+    "name": "section_id",
+    "label": "Section ID (optional)",
+    "type": "text"
+  },
+  {
+    "name": "region_label",
+    "label": "Region label (optional)",
+    "type": "text"
+  },
+  {
+    "name": "style_variant",
+    "label": "Style variant",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "default",
+        "Default"
+      ],
+      [
+        "quiet",
+        "Quiet"
+      ]
+    ],
+    "default": "default"
+  },
+  {
+    "name": "title",
+    "label": "Title",
+    "type": "text",
+    "default": "A threshold into thought, language, and inquiry"
+  },
+  {
+    "name": "subtitle",
+    "label": "Poetic subtitle",
+    "type": "textarea",
+    "default": "This is a living portal for research notes, contemplative writing, glossary pathways, and conversations in consciousness studies."
+  },
+  {
+    "name": "cta_text",
+    "label": "Primary button text",
+    "type": "text",
+    "default": "Begin here"
+  },
+  {
+    "name": "cta_link",
+    "label": "Primary button link",
+    "type": "link",
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "BLOG"
+    ],
+    "default": {
+      "url": {
+        "href": "/start-here",
+        "type": "EXTERNAL"
+      }
+    }
+  }
+]

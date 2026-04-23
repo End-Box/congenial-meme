@@ -1,0 +1,86 @@
+[
+  {
+    "name": "brand",
+    "label": "Brand",
+    "type": "group",
+    "children": [
+      {"name": "logo", "label": "Logo", "type": "image", "resizable": true, "responsive": true},
+      {"name": "logo_alt", "label": "Logo alt text", "type": "text", "default": "Green Gage logo"},
+      {"name": "favicon", "label": "Favicon", "type": "image"}
+    ]
+  },
+  {
+    "name": "navigation",
+    "label": "Navigation",
+    "type": "group",
+    "children": [
+      {
+        "name": "header_links",
+        "label": "Header links",
+        "type": "group",
+        "occurrence": {"min": 1, "max": 8, "default": 6, "sorting_label_field": "label"},
+        "children": [
+          {"name": "label", "label": "Label", "type": "text", "default": "Page"},
+          {"name": "url", "label": "Link", "type": "link", "supported_types": ["EXTERNAL", "CONTENT", "BLOG", "FILE"]}
+        ],
+        "default": [
+          {"label": "Home", "url": {"url": {"href": "/", "type": "EXTERNAL"}}},
+          {"label": "Blog", "url": {"url": {"href": "/blog", "type": "EXTERNAL"}}},
+          {"label": "About", "url": {"url": {"href": "/about", "type": "EXTERNAL"}}},
+          {"label": "Disclaimer", "url": {"url": {"href": "/disclaimer", "type": "EXTERNAL"}}},
+          {"label": "Consulting", "url": {"url": {"href": "/consulting", "type": "EXTERNAL"}}},
+          {"label": "Get Started", "url": {"url": {"href": "/start-here", "type": "EXTERNAL"}}}
+        ]
+      },
+      {
+        "name": "footer_links",
+        "label": "Footer links",
+        "type": "group",
+        "occurrence": {"min": 1, "max": 6, "default": 4, "sorting_label_field": "label"},
+        "children": [
+          {"name": "label", "label": "Label", "type": "text", "default": "Footer page"},
+          {"name": "url", "label": "Link", "type": "link", "supported_types": ["EXTERNAL", "CONTENT", "BLOG", "FILE"]}
+        ],
+        "default": [
+          {"label": "Disclaimer", "url": {"url": {"href": "/disclaimer", "type": "EXTERNAL"}}},
+          {"label": "Consulting", "url": {"url": {"href": "/consulting", "type": "EXTERNAL"}}},
+          {"label": "Start Here", "url": {"url": {"href": "/start-here", "type": "EXTERNAL"}}},
+          {"label": "Ecosystem", "url": {"url": {"href": "/ecosystem", "type": "EXTERNAL"}}}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "colors",
+    "label": "Colors",
+    "type": "group",
+    "children": [
+      {"name": "background", "label": "Page background", "type": "color", "default": {"color": "#f8f6f2", "opacity": 100}},
+      {"name": "surface", "label": "Surface", "type": "color", "default": {"color": "#ffffff", "opacity": 100}},
+      {"name": "text", "label": "Body text", "type": "color", "default": {"color": "#1e1f24", "opacity": 100}},
+      {"name": "muted_text", "label": "Muted text", "type": "color", "default": {"color": "#585b67", "opacity": 100}},
+      {"name": "accent", "label": "Accent", "type": "color", "default": {"color": "#2d5b55", "opacity": 100}},
+      {"name": "border", "label": "Border", "type": "color", "default": {"color": "#d9d5cb", "opacity": 100}}
+    ]
+  },
+  {
+    "name": "typography",
+    "label": "Typography",
+    "type": "group",
+    "children": [
+      {"name": "font_body", "label": "Body font", "type": "font", "default": {"font": "Inter", "fallback": "sans-serif", "font_set": "GOOGLE"}},
+      {"name": "font_display", "label": "Display font", "type": "font", "default": {"font": "Cormorant Garamond", "fallback": "serif", "font_set": "GOOGLE"}},
+      {"name": "base_font_size", "label": "Base font size", "type": "number", "display": "text", "default": 17, "suffix": "px", "min": 14, "max": 20, "step": 1}
+    ]
+  },
+  {
+    "name": "layout",
+    "label": "Layout",
+    "type": "group",
+    "children": [
+      {"name": "content_max_width", "label": "Content max width", "type": "number", "display": "text", "default": 1120, "suffix": "px", "min": 920, "max": 1500, "step": 10},
+      {"name": "section_spacing", "label": "Section spacing", "type": "number", "display": "text", "default": 72, "suffix": "px", "min": 32, "max": 140, "step": 4},
+      {"name": "radius", "label": "Card radius", "type": "number", "display": "text", "default": 14, "suffix": "px", "min": 0, "max": 36, "step": 1}
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+<!--
+  templateType: none
+-->
+<!doctype html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_meta.html_title }}</title>
+    {% if theme.brand.favicon.src %}
+      <link rel="icon" href="{{ theme.brand.favicon.src }}" type="{{ theme.brand.favicon.type }}">
+    {% endif %}
+    {{ standard_header_includes }}
+    {{ require_css(get_asset_url('../../css/base/global.css')) }}
+    {{ require_css(get_asset_url('../../css/components/header.css')) }}
+    {{ require_css(get_asset_url('../../css/components/footer.css')) }}
+    {{ require_css(get_asset_url('../../css/components/buttons.css')) }}
+    {{ require_css(get_asset_url('../../css/components/sections.css')) }}
+    {{ require_css(get_asset_url('../../css/utilities/helpers.css')) }}
+  </head>
+  <body>
+    {% include '../../partials/header.html' %}
+    <main id="main-content">
+      {% block body %}{% endblock body %}
+    </main>
+    {% include '../../partials/footer.html' %}
+    {{ standard_footer_includes }}
+  </body>
+</html>

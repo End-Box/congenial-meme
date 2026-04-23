@@ -1,0 +1,18 @@
+{% import '../../partials/macros/link-utils.html' as link_utils %}
+<nav class="language-switcher language-switcher--{{ module.style_variant }}" aria-label="{{ module.label|default('Select language') }}">
+  <ul>
+    {% for item in module.languages %}
+      {% if item.url.url.href and item.label %}
+        {% set href = link_utils.href(item.url)|trim %}
+        {% set rel = link_utils.rel_attr(item.url)|trim %}
+        <li>
+          <a href="{{ href }}"
+             {% if item.url.open_in_new_tab %}target="_blank"{% endif %}
+             {% if rel %}rel="{{ rel }}"{% endif %}>
+            {{ item.label }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

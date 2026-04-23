@@ -1,0 +1,27 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.focusable-skip:focus,
+.focusable-skip:focus-visible {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  white-space: normal;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.flow > * + * { margin-top: var(--flow-space, 1rem); }
+.flow-sm { --flow-space: 0.5rem; }
+.flow-md { --flow-space: 0.85rem; }
+.flow-lg { --flow-space: 1rem; }

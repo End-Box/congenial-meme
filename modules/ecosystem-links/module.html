@@ -1,0 +1,21 @@
+{% import '../../partials/macros/link-utils.html' as link_utils %}
+{% import '../../partials/macros/section-utils.html' as section_utils %}
+<section {{ section_utils.attrs(module.section_id, 'section', module.region_label) }}>
+  <div class="container flow flow-lg">
+    <h2 class="section-heading">{{ module.heading }}</h2>
+    <ul class="ecosystem-links ecosystem-links--{{ module.style_variant }}">
+      {% for item in module.items %}
+        <li>
+          {% set href = item.link.url.href and link_utils.href(item.link)|trim or '#' %}
+          {% set rel = item.link.url.href and link_utils.rel_attr(item.link)|trim or '' %}
+          <a class="surface-card" href="{{ href }}"
+             {% if item.link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if rel %}rel="{{ rel }}"{% endif %}>
+            <strong>{{ item.title }}</strong>
+            {% if item.meta %}<span class="section-body">{{ item.meta }}</span>{% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

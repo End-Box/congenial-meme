@@ -1,0 +1,57 @@
+[
+  {
+    "name": "section_id",
+    "label": "Section ID (optional)",
+    "type": "text"
+  },
+  {
+    "name": "region_label",
+    "label": "Region label (optional)",
+    "type": "text"
+  },
+  {
+    "name": "style_variant",
+    "label": "Style variant",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "default",
+        "Default"
+      ],
+      [
+        "subtle",
+        "Subtle"
+      ]
+    ],
+    "default": "subtle"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Ready to begin?"
+  },
+  {
+    "name": "cta_text",
+    "label": "Button text",
+    "type": "text",
+    "default": "Get Started"
+  },
+  {
+    "name": "cta_link",
+    "label": "Button link",
+    "type": "link",
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "BLOG"
+    ],
+    "default": {
+      "url": {
+        "href": "/start-here",
+        "type": "EXTERNAL"
+      }
+    }
+  }
+]

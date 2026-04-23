@@ -1,0 +1,20 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Ecosystem
+  screenshotPath: ../images/template-ecosystem.png
+-->
+{% extends './layout/base.html' %}
+
+{% block body %}
+  {% dnd_area 'ecosystem_main', class='body-container-wrapper' %}
+    {% dnd_section max_width=1100, padding={"top": 56, "bottom": 56} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/ecosystem-links' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+{% endblock body %}

@@ -1,0 +1,12 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Standard Page
+  screenshotPath: ../images/template-standard-page.png
+-->
+{% extends './layout/base.html' %}
+
+{% block body %}
+  {% dnd_area 'standard_page_main', class='body-container-wrapper' %}
+  {% end_dnd_area %}
+{% endblock body %}

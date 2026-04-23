@@ -1,0 +1,34 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Consulting
+  screenshotPath: ../images/template-consulting.png
+-->
+{% extends './layout/base.html' %}
+
+{% block body %}
+  {% dnd_area 'consulting_main', class='body-container-wrapper' %}
+    {% dnd_section max_width=960, padding={"top": 56, "bottom": 24} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/rich-text-section',
+            heading='Consulting',
+            body='<p>I work with people and organizations navigating complexity at the edge of language, systems, and lived experience.</p>',
+            section_id='consulting-intro',
+            style_variant='narrow'
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=1100, padding={"top": 8, "bottom": 64} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/service-pillars' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+{% endblock body %}

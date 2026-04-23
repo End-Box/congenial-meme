@@ -1,0 +1,24 @@
+{% import '../../partials/macros/link-utils.html' as link_utils %}
+{% import '../../partials/macros/section-utils.html' as section_utils %}
+<section {{ section_utils.attrs(module.section_id, 'section', module.region_label) }}>
+  <div class="container flow flow-lg">
+    <h2 class="section-heading">{{ module.heading }}</h2>
+    <div class="card-grid card-grid--three portal-cards portal-cards--{{ module.style_variant }}">
+      {% for card in module.cards %}
+        <article class="surface-card flow flow-sm">
+          <h3>{{ card.title }}</h3>
+          {% if card.description %}<p class="section-body">{{ card.description }}</p>{% endif %}
+          {% if card.link.url.href %}
+            {% set href = link_utils.href(card.link)|trim %}
+            {% set rel = link_utils.rel_attr(card.link)|trim %}
+            <a class="button" href="{{ href }}"
+               {% if card.link.open_in_new_tab %}target="_blank"{% endif %}
+               {% if rel %}rel="{{ rel }}"{% endif %}>
+              Explore
+            </a>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

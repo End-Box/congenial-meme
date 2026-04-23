@@ -1,0 +1,14 @@
+{% import '../../partials/macros/section-utils.html' as section_utils %}
+<section {{ section_utils.attrs(module.section_id, 'section explore-paths explore-paths--' ~ module.style_variant, module.region_label) }}>
+  <div class="container flow flow-lg">
+    <h2 class="section-heading">{{ module.heading }}</h2>
+    <ol class="explore-paths__list">
+      {% for path in module.paths %}
+        <li class="surface-card">
+          <h3>{{ path.title }}</h3>
+          <p class="section-body">{{ path.summary }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

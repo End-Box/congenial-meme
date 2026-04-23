@@ -1,0 +1,17 @@
+{% import '../../partials/macros/link-utils.html' as link_utils %}
+{% import '../../partials/macros/section-utils.html' as section_utils %}
+<section {{ section_utils.attrs(module.section_id, 'section hero-threshold hero-threshold--' ~ module.style_variant, module.region_label) }}>
+  <div class="container flow flow-lg">
+    <h1 class="section-heading">{{ module.title }}</h1>
+    {% if module.subtitle %}<p class="section-body">{{ module.subtitle }}</p>{% endif %}
+    {% if module.cta_text and module.cta_link.url.href %}
+      {% set href = link_utils.href(module.cta_link)|trim %}
+      {% set rel = link_utils.rel_attr(module.cta_link)|trim %}
+      <a class="button button--primary" href="{{ href }}"
+         {% if module.cta_link.open_in_new_tab %}target="_blank"{% endif %}
+         {% if rel %}rel="{{ rel }}"{% endif %}>
+        {{ module.cta_text }}
+      </a>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,16 @@
+{% macro href(link_field) %}
+  {% set resolved = link_field.url.href|default('') %}
+  {% if link_field.url.type == 'EMAIL_ADDRESS' and resolved %}
+    {% set resolved = 'mailto:' ~ resolved %}
+  {% elif link_field.url.type == 'PHONE_NUMBER' and resolved %}
+    {% set resolved = 'tel:' ~ resolved %}
+  {% endif %}
+  {{ resolved }}
+{% endmacro %}
+
+{% macro rel_attr(link_field) %}
+  {% set rel_values = [] %}
+  {% if link_field.open_in_new_tab %}{% do rel_values.append('noopener') %}{% endif %}
+  {% if link_field.no_follow %}{% do rel_values.append('nofollow') %}{% endif %}
+  {{ rel_values|join(' ') }}
+{% endmacro %}

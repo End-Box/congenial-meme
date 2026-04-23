@@ -1,0 +1,7 @@
+{% import '../../partials/macros/section-utils.html' as section_utils %}
+<section {{ section_utils.attrs(module.section_id, 'section closing-reflection closing-reflection--' ~ module.style_variant, module.region_label) }}>
+  <div class="container flow flow-md">
+    <h2 class="section-heading">{{ module.heading }}</h2>
+    <p class="section-body">{{ module.reflection }}</p>
+  </div>
+</section>

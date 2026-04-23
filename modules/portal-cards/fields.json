@@ -1,0 +1,112 @@
+[
+  {
+    "name": "section_id",
+    "label": "Section ID (optional)",
+    "type": "text"
+  },
+  {
+    "name": "region_label",
+    "label": "Region label (optional)",
+    "type": "text"
+  },
+  {
+    "name": "style_variant",
+    "label": "Style variant",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "default",
+        "Default"
+      ],
+      [
+        "framed",
+        "Framed"
+      ]
+    ],
+    "default": "default"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "What you'll find here"
+  },
+  {
+    "name": "cards",
+    "label": "Portal cards",
+    "type": "group",
+    "occurrence": {
+      "min": 3,
+      "max": 6,
+      "default": 4,
+      "sorting_label_field": "title"
+    },
+    "children": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Pathway"
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea",
+        "default": "A concise summary of this pathway."
+      },
+      {
+        "name": "link",
+        "label": "Link",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "BLOG"
+        ]
+      }
+    ],
+    "default": [
+      {
+        "title": "Writing",
+        "description": "Essays and field notes.",
+        "link": {
+          "url": {
+            "href": "/blog",
+            "type": "EXTERNAL"
+          }
+        }
+      },
+      {
+        "title": "Research",
+        "description": "Inquiries and working papers.",
+        "link": {
+          "url": {
+            "href": "/ecosystem",
+            "type": "EXTERNAL"
+          }
+        }
+      },
+      {
+        "title": "Glossary",
+        "description": "Language to think with.",
+        "link": {
+          "url": {
+            "href": "/glossary",
+            "type": "EXTERNAL"
+          }
+        }
+      },
+      {
+        "title": "Podcast / Video",
+        "description": "Conversations and recordings.",
+        "link": {
+          "url": {
+            "href": "/media",
+            "type": "EXTERNAL"
+          }
+        }
+      }
+    ]
+  }
+]

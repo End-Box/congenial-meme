@@ -1,0 +1,41 @@
+[
+  {
+    "name": "section_id",
+    "label": "Section ID (optional)",
+    "type": "text"
+  },
+  {
+    "name": "region_label",
+    "label": "Region label (optional)",
+    "type": "text"
+  },
+  {
+    "name": "style_variant",
+    "label": "Style variant",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "default",
+        "Default"
+      ],
+      [
+        "centered",
+        "Centered"
+      ]
+    ],
+    "default": "centered"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "In Closing"
+  },
+  {
+    "name": "reflection",
+    "label": "Reflection text",
+    "type": "textarea",
+    "default": "Take what is useful, return when needed, and continue the work of attentive thought."
+  }
+]

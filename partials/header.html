@@ -1,0 +1,18 @@
+<header class="site-header" role="banner">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="/" aria-label="Home">
+      {% if theme.brand.logo.src %}
+        <img class="site-header__logo" src="{{ theme.brand.logo.src }}" alt="{{ theme.brand.logo_alt|default('Green Gage logo') }}" loading="eager">
+      {% else %}
+        <span class="site-header__wordmark">Green Gage</span>
+      {% endif %}
+    </a>
+
+    <nav class="site-header__nav" aria-label="Primary navigation">
+      {% include './nav-list.html' with {'nav_items': theme.navigation.header_links, 'menu_class': 'site-header__menu'} %}
+    </nav>
+
+    {% module "header_language_switcher" path="../modules/language-switcher", label="Language Switcher" %}
+    <a href="#main-content" class="visually-hidden focusable-skip">Skip to content</a>
+  </div>
+</header>
