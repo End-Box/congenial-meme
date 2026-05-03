@@ -1,11 +1,11 @@
 <nav class="language-switcher language-switcher--{{ module.style_variant }}" aria-label="{{ module.aria_label|default('Select language') }}">
   <ul>
     {% for item in module.languages %}
-      {% if item.url.href and item.name %}
+      {% if item.url.href and item.language %}
         <li>
           <a href="{{ item.url.href }}"
              {% if item.url.open_in_new_tab %}target="_blank"{% endif %}
-             {% if item.url.no_follow %}rel="nofollow noopener"{% endif %}>{{ item.name }}</a>
+             {% if item.url.no_follow %}rel="nofollow noopener"{% endif %}>{{ item.language }}</a>
         </li>
       {% endif %}
     {% endfor %}

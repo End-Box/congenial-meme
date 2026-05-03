@@ -2,7 +2,7 @@
   <div class="container flow flow-md">
     <h2 class="section-heading">{{ module.heading }}</h2>
     <div class="card-grid card-grid--three">
-      {% blog_recent_posts "recent_posts_listing" limit=module.post_count, no_wrapper=True %}
+      {{ blog_recent_posts(module.post_count) }}
     </div>
   </div>
 </section>
