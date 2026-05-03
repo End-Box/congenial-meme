@@ -1,0 +1,10 @@
+.recent-posts .hs_cos_wrapper_type_blog_recent_posts {
+  display: contents;
+}
+.recent-posts .post-item,
+.recent-posts article {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}

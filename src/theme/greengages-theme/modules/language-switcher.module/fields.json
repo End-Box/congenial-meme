@@ -51,18 +51,18 @@
     ],
     "default": [
       {
+        "name": "EN",
         "url": {
           "href": "/",
           "type": "EXTERNAL"
-        },
-        "name": "EN"
+        }
       },
       {
+        "name": "FR",
         "url": {
-          "href": "/es",
+          "href": "/fr",
           "type": "EXTERNAL"
-        },
-        "name": "ES"
+        }
       }
     ]
   }
