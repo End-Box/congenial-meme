@@ -36,25 +36,9 @@
         "default": "/"
       },
       {
-        "name": "menu_items",
-        "label": "Menu items",
-        "type": "group",
-        "occurrence": {
-          "min": 1,
-          "default": 6
-        },
-        "children": [
-          {
-            "name": "label",
-            "label": "Label",
-            "type": "text"
-          },
-          {
-            "name": "url",
-            "label": "URL",
-            "type": "link"
-          }
-        ]
+        "name": "navigation_menu",
+        "label": "Navigation menu",
+        "type": "menu"
       }
     ]
   },

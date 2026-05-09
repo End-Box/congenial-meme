@@ -8,24 +8,19 @@
       {% endif %}
     </a>
 
-    {% set menu_items = theme.header.menu_items %}
-    <nav class="site-header__nav" aria-label="Primary navigation">
-      <ul class="site-header__menu">
-        {% if menu_items|length %}
-          {% for item in menu_items %}
-            {% if item.label and item.url.href %}
-              <li><a href="{{ item.url.href }}" {% if item.url.open_in_new_tab %}target="_blank"{% endif %}>{{ item.label }}</a></li>
-            {% endif %}
-          {% endfor %}
-        {% else %}
+        <nav class="site-header__nav" aria-label="Primary navigation">
+      {% if theme.header.navigation_menu %}
+        {% menu id=theme.header.navigation_menu %}
+      {% else %}
+        <ul class="site-header__menu">
           <li><a href="/">Home</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/disclaimer">Disclaimer</a></li>
           <li><a href="/consulting">Consulting</a></li>
           <li><a href="/start-here">Get Started</a></li>
-        {% endif %}
-      </ul>
+        </ul>
+      {% endif %}
     </nav>
 
     {% module "header_language_switcher" path="../modules/language-switcher.module", label="Language Switcher" %}
