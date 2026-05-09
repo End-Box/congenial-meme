@@ -1,21 +1,30 @@
 <header class="site-header" role="banner">
   <div class="container site-header__inner">
-    <a class="site-header__brand" href="/" aria-label="Home">
+    <a class="site-header__brand" href="{{ theme.header.home_url|default('/') }}" aria-label="Home">
       {% if theme.brand.logo.src %}
-        <img class="site-header__logo" src="{{ theme.brand.logo.src }}" alt="Green Gage logo" loading="eager">
+        <img class="site-header__logo" src="{{ theme.brand.logo.src }}" alt="{{ theme.header.brand_name|default('Green Gage') }} logo" loading="eager">
       {% else %}
-        <span class="site-header__wordmark">Green Gage</span>
+        <span class="site-header__wordmark">{{ theme.header.brand_name|default('Green Gage') }}</span>
       {% endif %}
     </a>
 
+    {% set menu_items = theme.header.menu_items %}
     <nav class="site-header__nav" aria-label="Primary navigation">
       <ul class="site-header__menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/disclaimer">Disclaimer</a></li>
-        <li><a href="/consulting">Consulting</a></li>
-        <li><a href="/start-here">Get Started</a></li>
+        {% if menu_items|length %}
+          {% for item in menu_items %}
+            {% if item.label and item.url.href %}
+              <li><a href="{{ item.url.href }}" {% if item.url.open_in_new_tab %}target="_blank"{% endif %}>{{ item.label }}</a></li>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <li><a href="/">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/disclaimer">Disclaimer</a></li>
+          <li><a href="/consulting">Consulting</a></li>
+          <li><a href="/start-here">Get Started</a></li>
+        {% endif %}
       </ul>
     </nav>
 
