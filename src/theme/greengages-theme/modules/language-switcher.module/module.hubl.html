@@ -1,13 +1,16 @@
 <nav class="language-switcher language-switcher--{{ module.style_variant }}" aria-label="{{ module.aria_label|default('Select language') }}">
   <ul>
-    {% for item in module.languages %}
-      {% if item.url.href and item.language %}
+    {% if module.languages and module.languages|length %}
+      {% for item in module.languages %}
         <li>
-          <a href="{{ item.url.href }}"
+          <a href="{{ item.url.href|default('#') }}"
              {% if item.url.open_in_new_tab %}target="_blank"{% endif %}
-             {% if item.url.no_follow %}rel="nofollow noopener"{% endif %}>{{ item.language }}</a>
+             {% if item.url.no_follow %}rel="nofollow noopener"{% endif %}>{{ item.language|default('Language') }}</a>
         </li>
-      {% endif %}
-    {% endfor %}
+      {% endfor %}
+    {% else %}
+      <li><a href="/">EN</a></li>
+      <li><a href="/fr">FR</a></li>
+    {% endif %}
   </ul>
 </nav>
