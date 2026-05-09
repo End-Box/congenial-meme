@@ -1,8 +1,19 @@
 <section class="section recent-posts" aria-label="Recent blog posts">
   <div class="container flow flow-md">
     <h2 class="section-heading">{{ module.heading }}</h2>
-    <div class="card-grid card-grid--three">
-      {{ blog_recent_posts(module.post_count) }}
+
+    {% set posts = blog_recent_posts(module.post_count) %}
+    <div class="card-grid card-grid--three recent-posts__grid">
+      {% for post in posts %}
+        <article class="recent-posts__item">
+          <a class="recent-posts__link" href="{{ post.absolute_url|default(post.url) }}">
+            {% if post.featured_image %}
+              <img class="recent-posts__image" src="{{ post.featured_image }}" alt="{{ post.featured_image_alt_text|default(post.name) }}" loading="lazy">
+            {% endif %}
+            <h3 class="recent-posts__title">{{ post.name }}</h3>
+          </a>
+        </article>
+      {% endfor %}
     </div>
   </div>
 </section>
