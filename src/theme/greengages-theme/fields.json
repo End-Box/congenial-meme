@@ -19,30 +19,6 @@
     ]
   },
   {
-    "name": "header",
-    "label": "Header",
-    "type": "group",
-    "children": [
-      {
-        "name": "brand_name",
-        "label": "Brand name",
-        "type": "text",
-        "default": "Green Gage"
-      },
-      {
-        "name": "home_url",
-        "label": "Home URL",
-        "type": "text",
-        "default": "/"
-      },
-      {
-        "name": "navigation_menu",
-        "label": "Navigation menu",
-        "type": "menu"
-      }
-    ]
-  },
-  {
     "name": "colors",
     "label": "Colors",
     "type": "group",
