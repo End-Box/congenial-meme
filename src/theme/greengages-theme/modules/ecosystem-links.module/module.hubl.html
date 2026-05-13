@@ -1,15 +1,25 @@
+{% import '../../partials/macros/link-utils.hubl.html' as link_utils %}
 <section class="section" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
   <div class="container flow flow-lg">
     <h2 class="section-heading">{{ module.heading }}</h2>
     <ul class="ecosystem-links ecosystem-links--{{ module.style_variant }}">
       {% for item in module.items %}
+        {% set href = link_utils.href(item.link)|trim %}
+        {% set rel = link_utils.rel_attr(item.link)|trim %}
         <li>
-          <a class="surface-card" href="{{ item.link.href|default('#') }}"
-             {% if item.link.open_in_new_tab %}target="_blank"{% endif %}
-             {% if item.link.no_follow %}rel="nofollow noopener"{% endif %}>
-            <strong>{{ item.title }}</strong>
-            {% if item.meta %}<span class="section-body">{{ item.meta }}</span>{% endif %}
-          </a>
+          {% if href %}
+            <a class="surface-card" href="{{ href }}"
+               {% if item.link.open_in_new_tab %}target="_blank"{% endif %}
+               {% if rel %}rel="{{ rel }}"{% endif %}>
+              <strong>{{ item.title }}</strong>
+              {% if item.meta %}<span class="section-body">{{ item.meta }}</span>{% endif %}
+            </a>
+          {% else %}
+            <div class="surface-card">
+              <strong>{{ item.title }}</strong>
+              {% if item.meta %}<span class="section-body">{{ item.meta }}</span>{% endif %}
+            </div>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>
