@@ -1,0 +1,41 @@
+[
+  {
+    "name": "default_english_url",
+    "label": "Default English URL",
+    "required": false,
+    "locked": false,
+    "type": "url",
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/"
+    }
+  },
+  {
+    "name": "default_french_url",
+    "label": "Default French URL",
+    "required": false,
+    "locked": false,
+    "type": "url",
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/fr"
+    }
+  },
+  {
+    "name": "current_language",
+    "label": "Current language fallback",
+    "required": false,
+    "locked": false,
+    "type": "choice",
+    "display": "select",
+    "choices": [["en", "English"], ["fr", "French"]],
+    "default": "en"
+  },
+  {
+    "name": "aria_label",
+    "label": "Aria label",
+    "required": false,
+    "type": "text",
+    "default": "Language selector"
+  }
+]

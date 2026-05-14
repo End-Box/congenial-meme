@@ -1,0 +1,46 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: For Guests
+-->
+{% extends "./layout/base.hubl.html" %}
+
+{% block body %}
+{% dnd_area "for_guests_content", class="for-guests-page" %}
+
+  {% dnd_section %}
+    {% dnd_module path="@hubspot/rich_text", html="<h1>For Guests</h1><p><strong>Meaningful conversations at the threshold of science, story, nature, and consciousness.</strong></p><p>This page is for potential guests invited to join Green Gage’s conversations.</p>" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="@hubspot/rich_text", html="<h2>What Green Gage’s Is</h2><p>Green Gage’s is an interdisciplinary research and educational platform exploring how matter becomes mind, how experience becomes meaning, and how science, philosophy, and symbolic interpretation can speak to one another without being collapsed into each other.</p>" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="@hubspot/rich_text", html="<h2>The Conversation Format</h2><p>Episodes are thoughtful, unscripted conversations guided by curiosity rather than rigid interviews. The host prepares carefully, but guests do not need to memorize answers.</p>" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="@hubspot/rich_text", html="<h2>What Guests Can Expect</h2><ul><li>A respectful, well-researched conversation</li><li>No gotcha questions</li><li>Space for nuance and complexity</li><li>A calm recording process</li><li>Clear communication before publication</li><li>Episode links and clips shared after release</li></ul>" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="@hubspot/rich_text", html="<h2>Face / Audio / Video Options</h2><ul><li>The host does not need to appear on camera.</li><li>Guests may appear on video if they wish.</li><li>Audio-only options are possible.</li><li>Guest-only video can work.</li><li>The format is flexible depending on comfort, topic, and platform.</li></ul>" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="@hubspot/rich_text", html="<h2>Past Episodes / Examples</h2><p>Add/edit episode cards below.</p>" %}{% end_dnd_module %}
+    {% dnd_module path="@hubspot/rich_text", html="<p><strong>Episode Card Template:</strong> Guest name, episode title, short description, YouTube URL, optional image.</p>" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="@hubspot/rich_text", html="<h2>Good Guest Fit</h2><p>Green Gage’s is especially interested in guests working across consciousness, psychology, neuroscience, psychedelics and integration, ecology and nature-based spirituality, philosophy, symbolic systems, education, mental health, creativity, ethical technology, and cultural transformation.</p>" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="@hubspot/rich_text", html="<h2>Interested in joining the conversation?</h2><p>If you feel aligned with the project, you can reach out below.</p>" %}{% end_dnd_module %}
+    {% dnd_module path="@hubspot/form", form={"form_id":""} %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

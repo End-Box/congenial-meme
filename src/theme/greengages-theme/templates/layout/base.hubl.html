@@ -1,0 +1,17 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Base Layout
+-->
+<!doctype html>
+<html>
+  <body>
+    {% module "page_language_config" path="/greengages-theme/modules/page-language-config.module", export_to_template_context=True, no_wrapper=True %}
+    {% include "../../partials/header.hubl.html" %}
+    <main>
+      {% block body %}
+      {% dnd_area "base_content" %}{% end_dnd_area %}
+      {% endblock body %}
+    </main>
+  </body>
+</html>

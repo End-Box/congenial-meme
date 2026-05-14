@@ -1,0 +1,27 @@
+{% set page_en = widget_data.page_language_config.language_english_url.href|default("") %}
+{% set page_fr = widget_data.page_language_config.language_french_url.href|default("") %}
+{% set page_lang = widget_data.page_language_config.language_current|default("") %}
+
+{% set en_href = page_en if page_en else module.default_english_url.href %}
+{% set fr_href = page_fr if page_fr else module.default_french_url.href %}
+{% set current_lang = page_lang|lower if page_lang else module.current_language|lower %}
+
+<nav class="gg-language-switcher" aria-label="{{ module.aria_label|default('Language selector') }}">
+  <ul class="gg-language-switcher__list" role="list">
+    <li>
+      {% if en_href %}
+        <a class="gg-language-switcher__link{% if current_lang == 'en' %} is-current{% endif %}" href="{{ en_href|escape_url }}" {% if current_lang == 'en' %}aria-current="page"{% endif %}>English</a>
+      {% else %}
+        <span class="gg-language-switcher__link is-disabled">English</span>
+      {% endif %}
+    </li>
+    <li aria-hidden="true" class="gg-language-switcher__divider">/</li>
+    <li>
+      {% if fr_href %}
+        <a class="gg-language-switcher__link{% if current_lang == 'fr' %} is-current{% endif %}" href="{{ fr_href|escape_url }}" {% if current_lang == 'fr' %}aria-current="page"{% endif %}>Français</a>
+      {% else %}
+        <span class="gg-language-switcher__link is-disabled">Français</span>
+      {% endif %}
+    </li>
+  </ul>
+</nav>

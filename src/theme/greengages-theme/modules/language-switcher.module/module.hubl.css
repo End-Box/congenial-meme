@@ -1,0 +1,8 @@
+.gg-language-switcher { font-size: 0.95rem; letter-spacing: 0.01em; }
+.gg-language-switcher__list { display: inline-flex; gap: 0.5rem; align-items: center; margin: 0; padding: 0; list-style: none; }
+.gg-language-switcher__link { color: #344137; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
+.gg-language-switcher__link:hover,
+.gg-language-switcher__link:focus-visible { border-bottom-color: currentColor; outline: none; }
+.gg-language-switcher__link.is-current { font-weight: 600; border-bottom-color: currentColor; }
+.gg-language-switcher__link.is-disabled { color: #889488; cursor: not-allowed; }
+.gg-language-switcher__divider { color: #6e7b6f; }

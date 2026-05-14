@@ -1,0 +1,5 @@
+[
+  {"name":"language_english_url","label":"English page URL","type":"url","required":false},
+  {"name":"language_french_url","label":"French page URL","type":"url","required":false},
+  {"name":"language_current","label":"Current language","type":"choice","display":"select","choices":[["en","English"],["fr","French"]],"default":"en"}
+]
