@@ -8,7 +8,7 @@
 <section class="section blog-index">
   <div class="container flow flow-lg">
     <h1 class="section-heading">{{ group.public_title|default('Blog') }}</h1>
-    {% blog_recent_posts group.id, 12 %}
+    {{ blog_recent_posts(group.id, 12) }}
   </div>
 </section>
 {% endblock body %}
