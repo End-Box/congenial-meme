@@ -8,11 +8,31 @@
       {% endif %}
     </a>
 
-        <nav class="site-header__nav" aria-label="Primary navigation">
+    <nav class="site-header__nav" aria-label="Primary navigation">
       {% module "header_menu" path="@hubspot/menu", label="Header Menu" %}
     </nav>
 
-    {% module "header_language_switcher" path="../modules/language-switcher.module", label="Language Switcher" %}
+    {#
+      Multilingual model:
+      - French root language lives at /
+      - English pages live under /en
+      Prefer HubSpot content-group translations over hardcoded paths.
+    #}
+    {% set has_published_translation = false %}
+    {% if content and content.translated_content %}
+      {% for translated in content.translated_content %}
+        {% if translated.published %}
+          {% set has_published_translation = true %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% if has_published_translation %}
+      <nav class="site-header__lang" aria-label="Language switcher">
+        {% module 'language-switcher' path='@hubspot/language_switcher', label='Language switcher', display_mode='localized' %}
+      </nav>
+    {% endif %}
+
     <a href="#main-content" class="visually-hidden focusable-skip">Skip to content</a>
   </div>
 </header>

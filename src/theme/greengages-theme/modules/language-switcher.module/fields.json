@@ -1,69 +1,7 @@
 [
-  {
-    "name": "style_variant",
-    "label": "Style variant",
-    "type": "choice",
-    "display": "select",
-    "choices": [
-      [
-        "minimal",
-        "Minimal"
-      ],
-      [
-        "button",
-        "Button"
-      ]
-    ],
-    "default": "minimal"
-  },
-  {
-    "name": "aria_label",
-    "label": "Accessible label",
-    "type": "text",
-    "default": "Select language"
-  },
-  {
-    "name": "languages",
-    "label": "Language options",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 8,
-      "default": 2,
-      "sorting_label_field": "language"
-    },
-    "children": [
-      {
-        "name": "language",
-        "label": "Language",
-        "type": "text",
-        "default": "EN"
-      },
-      {
-        "name": "url",
-        "label": "URL",
-        "type": "url",
-        "supported_types": [
-          "EXTERNAL",
-          "CONTENT"
-        ]
-      }
-    ],
-    "default": [
-      {
-        "url": {
-          "href": "/",
-          "type": "EXTERNAL"
-        },
-        "language": "EN"
-      },
-      {
-        "url": {
-          "href": "/fr",
-          "type": "EXTERNAL"
-        },
-        "language": "FR"
-      }
-    ]
-  }
+  {"name":"show_switcher","label":"Show switcher","type":"boolean","default":true},
+  {"name":"current_language","label":"Current language","type":"choice","display":"select","choices":[["fr","French (FR)"],["en","English (EN)"]],"default":"fr"},
+  {"name":"french_url","label":"French URL","type":"url","default":{"href":"/","type":"EXTERNAL"}},
+  {"name":"english_url","label":"English URL","type":"url","default":{"href":"/en","type":"EXTERNAL"}},
+  {"name":"aria_label","label":"Accessible label","type":"text","default":"Language switcher"}
 ]

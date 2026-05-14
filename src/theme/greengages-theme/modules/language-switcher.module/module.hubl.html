@@ -1,16 +1,10 @@
-<nav class="language-switcher language-switcher--{{ module.style_variant }}" aria-label="{{ module.aria_label|default('Select language') }}">
-  <ul>
-    {% if module.languages and module.languages|length %}
-      {% for item in module.languages %}
-        <li>
-          <a href="{{ item.url.href|default('#') }}"
-             {% if item.url.open_in_new_tab %}target="_blank"{% endif %}
-             {% if item.url.no_follow %}rel="nofollow noopener"{% endif %}>{{ item.language|default('Language') }}</a>
-        </li>
-      {% endfor %}
-    {% else %}
-      <li><a href="/">EN</a></li>
-      <li><a href="/fr">FR</a></li>
-    {% endif %}
-  </ul>
-</nav>
+{% if module.show_switcher %}
+  {% set fr_href = module.french_url.href|default(module.french_url.url.href|default('/')) %}
+  {% set en_href = module.english_url.href|default(module.english_url.url.href|default('/en')) %}
+  <nav class="language-switcher language-switcher--fallback" aria-label="{{ module.aria_label|default('Language switcher') }}">
+    <ul>
+      {% if fr_href %}<li><a href="{{ fr_href }}" {% if module.current_language == 'fr' %}aria-current="page"{% endif %}>FR</a></li>{% endif %}
+      {% if en_href %}<li><a href="{{ en_href }}" {% if module.current_language == 'en' %}aria-current="page"{% endif %}>EN</a></li>{% endif %}
+    </ul>
+  </nav>
+{% endif %}
