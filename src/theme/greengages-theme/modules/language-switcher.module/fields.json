@@ -4,26 +4,20 @@
     "label": "Current language",
     "type": "choice",
     "display": "select",
-    "choices": [["en", "English"], ["fr", "French"]],
-    "default": "en"
-  },
-  {
-    "name": "english_url",
-    "label": "English URL",
-    "type": "url",
-    "required": false
+    "choices": [["fr", "FR"], ["en", "EN"]],
+    "default": "fr"
   },
   {
     "name": "french_url",
-    "label": "French URL",
+    "label": "French page URL (ex: /a-propos or /)",
     "type": "url",
     "required": false
   },
   {
-    "name": "english_label",
-    "label": "English label",
-    "type": "text",
-    "default": "EN"
+    "name": "english_url",
+    "label": "English page URL (ex: /en/about or /en/)",
+    "type": "url",
+    "required": false
   },
   {
     "name": "french_label",
@@ -32,8 +26,14 @@
     "default": "FR"
   },
   {
+    "name": "english_label",
+    "label": "English label",
+    "type": "text",
+    "default": "EN"
+  },
+  {
     "name": "aria_label",
-    "label": "Aria label",
+    "label": "ARIA label",
     "type": "text",
     "default": "Select language"
   }

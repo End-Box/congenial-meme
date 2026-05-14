@@ -1,21 +1,26 @@
-{% set current_lang = module.current_language|default('en')|lower %}
-{% set en_href = module.english_url.href|default('/') %}
-{% set fr_href = module.french_url.href|default('/fr') %}
-{% set en_label = module.english_label|default('EN') %}
-{% set fr_label = module.french_label|default('FR') %}
+{% set current_lang = module.current_language|default('fr')|lower %}
+{% set fr_raw = module.french_url.href|default('/') %}
+{% set en_raw = module.english_url.href|default('/en/') %}
+
+{% set fr_href = fr_raw|replace('?hsLang=fr','')|replace('?hsLang=en','')|replace('&hsLang=fr','')|replace('&hsLang=en','') %}
+{% set en_href = en_raw|replace('?hsLang=fr','')|replace('?hsLang=en','')|replace('&hsLang=fr','')|replace('&hsLang=en','') %}
+{% set fr_href = fr_href if fr_href else '/' %}
+{% set en_href = en_href if en_href else '/en/' %}
 
 <nav class="language-switcher" aria-label="{{ module.aria_label|default('Select language')|escape_attr }}">
   <ul class="language-switcher__list" role="list">
     <li class="language-switcher__item">
-      <a class="language-switcher__link{% if current_lang == 'en' %} language-switcher__link--current{% endif %}"
-         href="{{ en_href|escape_url }}"
-         {% if current_lang == 'en' %}aria-current="page"{% endif %}>{{ en_label }}</a>
+      <a class="language-switcher__link{% if current_lang == 'fr' %} language-switcher__link--current{% endif %}"
+         href="{{ fr_href|escape_url }}"
+         hreflang="fr" lang="fr"
+         {% if current_lang == 'fr' %}aria-current="page"{% endif %}>{{ module.french_label|default('FR') }}</a>
     </li>
     <li class="language-switcher__separator" aria-hidden="true">/</li>
     <li class="language-switcher__item">
-      <a class="language-switcher__link{% if current_lang == 'fr' %} language-switcher__link--current{% endif %}"
-         href="{{ fr_href|escape_url }}"
-         {% if current_lang == 'fr' %}aria-current="page"{% endif %}>{{ fr_label }}</a>
+      <a class="language-switcher__link{% if current_lang == 'en' %} language-switcher__link--current{% endif %}"
+         href="{{ en_href|escape_url }}"
+         hreflang="en" lang="en"
+         {% if current_lang == 'en' %}aria-current="page"{% endif %}>{{ module.english_label|default('EN') }}</a>
     </li>
   </ul>
 </nav>
