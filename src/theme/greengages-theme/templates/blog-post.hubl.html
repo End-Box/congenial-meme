@@ -1,0 +1,17 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Blog Post
+-->
+{% extends './layout/base.hubl.html' %}
+{% block body %}
+<article class="section blog-post">
+  <div class="container flow flow-lg">
+    <header class="flow flow-sm">
+      <h1 class="section-heading">{{ content.name }}</h1>
+      <p class="section-kicker">{{ content.publish_date_localized }}</p>
+    </header>
+    <div class="blog-post__body flow flow-md">{{ content.post_body }}</div>
+  </div>
+</article>
+{% endblock body %}

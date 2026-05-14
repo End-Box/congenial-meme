@@ -1,0 +1,20 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Blog Listing
+-->
+{% extends './layout/base.hubl.html' %}
+{% block body %}
+<section class="section blog-listing">
+  <div class="container flow flow-lg">
+    <h1 class="section-heading">{{ group.public_title|default('Blog') }}</h1>
+    {% for content in contents %}
+      <article class="surface-card blog-card flow">
+        <h2><a href="{{ content.absolute_url }}">{{ content.name }}</a></h2>
+        <p class="section-body">{{ content.post_summary|striptags|truncate(220, True, '…') }}</p>
+      </article>
+    {% endfor %}
+    {{ blog_page_link('next') }}
+  </div>
+</section>
+{% endblock body %}

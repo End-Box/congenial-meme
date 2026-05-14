@@ -1,0 +1,22 @@
+:root {
+  --color-ink: #202126;
+  --color-ink-soft: #3f4756;
+  --color-parchment: #f7f1e6;
+  --color-cream: #fbf7ef;
+  --color-warm-paper: #f3eadb;
+  --color-border: #d8cebd;
+  --color-border-soft: #e7ddcf;
+  --color-gage-green: #2f6156;
+  --color-gage-green-dark: #244d45;
+  --color-sage: #9caf88;
+  --color-sage-soft: #eef3e8;
+  --color-gold-soft: #c6a65b;
+  --color-apricot-soft: #e9cfa6;
+  --shadow-soft: 0 12px 30px rgba(47, 33, 17, 0.05);
+  --shadow-green-soft: 0 16px 40px rgba(47, 97, 86, 0.08);
+}
+body { background: var(--color-cream); color: var(--color-ink); }
+.site-header { background: var(--color-cream); border-bottom: 1px solid var(--color-border-soft); color: var(--color-ink); }
+.surface-card { background: var(--color-cream); border-color: var(--color-border-soft); box-shadow: var(--shadow-soft); }
+.button--primary, .hs-button, .btn-primary, .cta-button { background: var(--color-gage-green); border-color: var(--color-gage-green); color: var(--color-cream); }
+.button--primary:hover, .hs-button:hover, .btn-primary:hover, .cta-button:hover { background: var(--color-gage-green-dark); border-color: var(--color-gage-green-dark); }
