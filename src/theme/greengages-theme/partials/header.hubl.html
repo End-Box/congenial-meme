@@ -13,8 +13,10 @@
     </a>
 
     <nav class="site-header__nav" aria-label="Primary navigation">
-      {% module "header_menu" path="@hubspot/menu", label="Header Menu" %}
-      <div class="site-header__language" aria-label="Language options">
+      <div class="site-header__menu">
+        {% module "header_menu" path="@hubspot/menu", label="Header Menu" %}
+      </div>
+      <div class="site-header__language" aria-label="Language selector">
         {# Native switcher depends on HubSpot multilingual content groups and published variants. FR=/, EN=/en, no /fr. #}
         {% module "header_language_switcher" path="@hubspot/language_switcher", label="Language switcher", display_mode="localized" %}
       </div>
