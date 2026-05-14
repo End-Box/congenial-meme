@@ -6,6 +6,16 @@
   --color-accent: {{ theme.colors.accent.color }};
   --color-border: {{ theme.colors.border.color }};
 
+  --color-ink: var(--color-text);
+  --color-ink-soft: color-mix(in srgb, var(--color-text) 72%, #6b6356);
+  --color-parchment: color-mix(in srgb, var(--color-bg) 88%, #f7f1e6);
+  --color-cream: color-mix(in srgb, var(--color-surface) 92%, #fbf7ef);
+  --color-warm-paper: color-mix(in srgb, var(--color-bg) 84%, #f3eadb);
+  --color-border-soft: color-mix(in srgb, var(--color-border) 78%, #ece3d5);
+  --color-gage-green: var(--color-accent);
+  --color-gage-green-dark: color-mix(in srgb, var(--color-accent) 78%, #1f3f39);
+  --color-sage-soft: color-mix(in srgb, var(--color-accent) 10%, #eef3e8);
+
   --font-body: {{ theme.typography.font_body.font }}, {{ theme.typography.font_body.fallback }};
   --font-display: {{ theme.typography.font_display.font }}, {{ theme.typography.font_display.fallback }};
 
@@ -21,7 +31,7 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--color-text);
-  background: var(--color-bg);
+  background: var(--color-parchment);
   line-height: 1.65;
 }
 
@@ -37,6 +47,8 @@ a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.
 img { max-width: 100%; height: auto; display: block; }
 
 .container { width: min(100% - 2rem, var(--content-max-width)); margin-inline: auto; }
+
+.section:nth-of-type(even) { background: color-mix(in srgb, var(--color-cream) 94%, var(--color-sage-soft)); }
 .section { padding-block: clamp(2.25rem, 5vw, var(--section-spacing)); }
 
 @media (min-width: 768px) {

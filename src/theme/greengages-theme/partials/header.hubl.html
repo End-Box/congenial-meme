@@ -4,23 +4,28 @@
 -->
 <header class="site-header" role="banner">
   <div class="container site-header__inner">
-    <a class="site-header__brand" href="/" aria-label="Home">
-      {% if theme.brand.logo.src %}
-        <img class="site-header__logo" src="{{ theme.brand.logo.src }}" alt="Green Gage logo" loading="eager">
-      {% else %}
-        <span class="site-header__wordmark">Green Gage</span>
-      {% endif %}
-    </a>
+    <div class="site-header__brand-wrap">
+      <a class="site-header__brand" href="/" aria-label="Home">
+        {% if theme.brand.logo.src %}
+          <img class="site-header__logo" src="{{ theme.brand.logo.src }}" alt="Green Gage logo" loading="eager">
+        {% else %}
+          <span class="site-header__wordmark">Green Gage</span>
+        {% endif %}
+      </a>
+    </div>
 
     <nav class="site-header__nav" aria-label="Primary navigation">
       <div class="site-header__menu">
         {% module "header_menu" path="@hubspot/menu", label="Header Menu" %}
       </div>
+    </nav>
+
+    <div class="site-header__actions">
       <div class="site-header__language" aria-label="Language selector">
         {# Native switcher depends on HubSpot multilingual content groups and published variants. FR=/, EN=/en, no /fr. #}
         {% module "header_language_switcher" path="@hubspot/language_switcher", label="Language switcher", display_mode="localized" %}
       </div>
-    </nav>
+    </div>
 
     <a href="#main-content" class="visually-hidden focusable-skip">Skip to content</a>
   </div>

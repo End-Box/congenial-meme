@@ -2,10 +2,12 @@
 .section-kicker { color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.76rem; }
 .section-body { color: var(--color-muted); max-width: 70ch; }
 .surface-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--color-cream);
+  border: 1px solid var(--color-border-soft);
   border-radius: var(--radius);
   padding: clamp(1rem, 2vw, 1.5rem);
 }
 .card-grid { display: grid; gap: 1rem; }
 @media (min-width: 760px) { .card-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.surface-card:hover { border-color: color-mix(in srgb, var(--color-gage-green) 35%, var(--color-border)); box-shadow: 0 16px 40px rgba(47,97,86,.08); }
