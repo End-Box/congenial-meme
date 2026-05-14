@@ -7,7 +7,7 @@
   {"name":"cards","label":"Cards","type":"group","occurrence":{"min":0,"max":8,"default":4,"sorting_label_field":"title"},"children":[
     {"name":"guest_name","label":"Guest name","type":"text"},
     {"name":"title","label":"Title","type":"text","default":"Card title"},
-    {"name":"description","label":"Description","type":"textarea"},
+    {"name":"description","label":"Description","type":"text"},
     {"name":"link","label":"Link","type":"url","supported_types":["EXTERNAL","CONTENT"]},
     {"name":"tags","label":"Tags (comma separated)","type":"text"}
   ]}
