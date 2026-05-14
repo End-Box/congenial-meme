@@ -1,0 +1,14 @@
+[
+  {"name":"section_id","label":"Section ID","type":"text"},
+  {"name":"eyebrow","label":"Eyebrow","type":"text"},
+  {"name":"heading","label":"Heading","type":"text","default":"Guest section"},
+  {"name":"intro","label":"Intro text","type":"richtext"},
+  {"name":"variant","label":"Variant","type":"choice","display":"select","choices":[["editorial","Editorial"],["cards","Cards"],["episode_examples","Episode examples"],["contact_intro","Contact intro"]],"default":"editorial"},
+  {"name":"cards","label":"Cards","type":"group","occurrence":{"min":0,"max":8,"default":4,"sorting_label_field":"title"},"children":[
+    {"name":"guest_name","label":"Guest name","type":"text"},
+    {"name":"title","label":"Title","type":"text","default":"Card title"},
+    {"name":"description","label":"Description","type":"textarea"},
+    {"name":"link","label":"Link","type":"url","supported_types":["EXTERNAL","CONTENT"]},
+    {"name":"tags","label":"Tags (comma separated)","type":"text"}
+  ]}
+]

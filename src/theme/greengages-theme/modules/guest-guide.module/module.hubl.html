@@ -1,0 +1,25 @@
+<section class="section guest-guide guest-guide--{{ module.variant }}" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}>
+  <div class="container flow flow-md">
+    {% if module.eyebrow %}<p class="guest-guide__eyebrow">{{ module.eyebrow }}</p>{% endif %}
+    {% if module.heading %}<h2 class="section-heading">{{ module.heading }}</h2>{% endif %}
+    {% if module.intro %}<div class="section-body guest-guide__intro">{{ module.intro }}</div>{% endif %}
+
+    {% if module.cards and module.cards|length %}
+      <ul class="guest-guide__cards">
+        {% for card in module.cards %}
+          {% set href = card.link.href|default(card.link.url.href|default('')) %}
+          <li class="guest-guide__card">
+            {% if module.variant == 'episode_examples' and card.guest_name %}<p class="section-kicker">{{ card.guest_name }}</p>{% endif %}
+            {% if href %}<a class="guest-guide__episode-link" href="{{ href }}" {% if card.link.open_in_new_tab %}target="_blank"{% endif %}>{% endif %}
+              {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
+              {% if card.description %}<p class="section-body">{{ card.description }}</p>{% endif %}
+            {% if href %}</a>{% endif %}
+            {% if card.tags %}
+              <div>{% for tag in card.tags|split(',') %}<span class="guest-guide__tag">{{ tag|trim }}</span>{% endfor %}</div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</section>

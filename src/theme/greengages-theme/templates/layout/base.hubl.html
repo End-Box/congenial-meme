@@ -19,11 +19,11 @@
     {{ require_css(get_asset_url('../../css/utilities/helpers.css')) }}
   </head>
   <body>
-    {% include '../../partials/header.hubl.html' %}
+    {% global_partial path='../../partials/header.hubl.html' %}
     <main id="main-content">
       {% block body %}{% endblock body %}
     </main>
-    {% include '../../partials/footer.hubl.html' %}
+    {% global_partial path='../../partials/footer.hubl.html' %}
     {{ standard_footer_includes }}
   </body>
 </html>

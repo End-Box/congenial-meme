@@ -3,76 +3,75 @@
   isAvailableForNewContent: true
   label: For Guests
   screenshotPath: ../images/template-standard-page.png
+  Notes:
+  - Create FR page at /pour-les-invites (or /invites) and EN page at /en/for-guests.
+  - Connect both as HubSpot language variants for native switcher behavior.
+  - SEO defaults: FR "Pour les invité·es | Green Gage’s" / EN "For Guests | Green Gage’s".
 -->
 {% extends './layout/base.hubl.html' %}
-
 {% set is_french = html_lang is string and html_lang|lower|startswith('fr') %}
-
 {% block body %}
-  {% dnd_area 'for_guests_main', class='body-container-wrapper' %}
-    {% dnd_section max_width=1100, padding={"top": 44, "bottom": 28} %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path='../modules/hero-threshold.module',
-            heading=("Pour les invité·es" if is_french else "For Guests"),
-            body=("Un espace de conversation calme et réfléchi pour explorer la conscience, la science, le sens, la nature et l’expérience humaine." if is_french else "A calm, thoughtful conversation space for exploring consciousness, science, meaning, nature, and the human experience."),
-            primary_cta_label=("Proposer une conversation" if is_french else "Become a Guest"),
-            primary_cta_url={"href": ("/contact" if is_french else "/en/contact"), "type": "EXTERNAL"},
-            secondary_cta_label=("Contacter Green Gage’s" if is_french else "Contact Green Gage’s")
-          %}{% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+{% dnd_area 'for_guests_main', class='body-container-wrapper' %}
+  {% dnd_section max_width=980, padding={"top": 48, "bottom": 24} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/hero-threshold.module',
+      heading=("Pour les invité·es" if is_french else "For Guests"),
+      body=("Une conversation calme, réfléchie et humaine autour de la conscience, de la science, du sens, de la nature et de l’expérience vécue." if is_french else "A calm, thoughtful, human conversation space for exploring consciousness, science, meaning, nature, and lived experience."),
+      primary_cta_label=("Proposer une conversation" if is_french else "Become a Guest")
+    %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
 
-    {% dnd_section max_width=980, padding={"top": 20, "bottom": 20} %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path='../modules/rich-text-section.module',
-            heading=("Ce qu’est Green Gage’s" if is_french else "What Green Gage’s Is"),
-            content=("<p>Green Gage’s est un projet de recherche et d’éducation interdisciplinaire qui explore comment la matière devient expérience, et comment l’expérience devient sens.</p><p>À travers des conversations long format, des essais et des médias éducatifs, il relie neurosciences, psychologie, philosophie, symbolisme, écologie, psychédéliques, spiritualité et culture — avec soin, curiosité et humilité épistémique.</p><p>Ce n’est pas un podcast sensationnaliste, mais un espace attentif pour des conversations significatives.</p>" if is_french else "<p>Green Gage’s is an interdisciplinary research and educational project exploring how matter becomes experience, and how experience becomes meaning.</p><p>Through long-form conversations, essays, and educational media, it brings together neuroscience, psychology, philosophy, symbolism, ecology, psychedelics, spirituality, and culture — always with care, curiosity, and epistemic humility.</p><p>It is not a sensationalist podcast. It is a careful space for meaningful conversation.</p>"),
-            section_id='what-is-green-gages'
-          %}{% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+  {% dnd_section max_width=980, padding={"top": 8, "bottom": 16} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='editorial',
+      heading=("Ce qu’est Green Gage’s" if is_french else "What Green Gage’s Is"),
+      intro=("<p>Green Gage’s est un projet de recherche et d’éducation interdisciplinaire qui explore comment la matière devient expérience, et comment l’expérience devient sens. À travers des conversations longues, des essais et des contenus éducatifs, le projet relie neurosciences, psychologie, philosophie, symbolisme, écologie, psychédéliques, spiritualité et culture — toujours avec soin, curiosité et humilité épistémique.</p>" if is_french else "<p>Green Gage’s is an interdisciplinary research and educational project exploring how matter becomes experience, and how experience becomes meaning. Through long-form conversations, essays, and educational media, it brings together neuroscience, psychology, philosophy, symbolism, ecology, psychedelics, spirituality, and culture — always with care, curiosity, and epistemic humility.</p>")
+    %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
 
-    {% dnd_section max_width=1100, padding={"top": 20, "bottom": 20} %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path='../modules/portal-cards.module',
-            heading=("Le format de conversation" if is_french else "The Conversation Format")
-          %}{% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+  {% dnd_section max_width=980, padding={"top": 8, "bottom": 16} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='editorial',
+      heading=("Le format de conversation" if is_french else "The Conversation Format"),
+      intro=("<p>Les épisodes sont non scriptés, mais préparés avec attention. L’objectif n’est pas de débattre, de performer ou de forcer des réponses simples, mais de créer un espace où une idée peut respirer. Des thèmes ou exemples de questions peuvent être partagés à l’avance, mais la conversation reste naturelle, ouverte et vivante.</p>" if is_french else "<p>Episodes are unscripted, but carefully prepared. The goal is not debate, performance, or forced simplicity, but a space where an idea can breathe. Guiding themes or sample questions can be shared beforehand, while the conversation itself remains natural, open, and alive.</p>")
+    %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
 
-    {% dnd_section max_width=980, padding={"top": 20, "bottom": 20} %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path='../modules/rich-text-section.module',
-            heading=("Face / Vidéo / Audio" if is_french else "Face / Video / Audio Options"),
-            content=("<p>L’hôte n’a pas besoin d’apparaître à la caméra. Selon vos préférences, les épisodes peuvent être enregistrés en vidéo invité·e seul·e, en vidéo complète, ou en audio prioritaire.</p><p>L’objectif est de préserver le confort, la présence et la confidentialité tout en produisant un épisode soigné et fiable.</p>" if is_french else "<p>The host does not need to appear on camera. Depending on the guest’s preference, episodes can be recorded as guest-only video, full video, or audio-first conversations.</p><p>The aim is to protect comfort and presence while still creating a polished, trustworthy episode.</p>")
-          %}{% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+  {% dnd_section max_width=1100, padding={"top": 8, "bottom": 16} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='cards', heading=("Ce que les invité·es peuvent attendre" if is_french else "What Guests Can Expect"), cards=[
+      {"title": ("Une préparation sérieuse" if is_french else "Thoughtful preparation"), "description": ("Chaque invité·e est abordé·e avec respect, recherche et attention." if is_french else "Each guest is approached with respect, research, and care.")},
+      {"title": ("Un rythme calme" if is_french else "A calm rhythm"), "description": ("La conversation laisse de la place à la nuance, aux détours utiles et aux idées complexes." if is_french else "The conversation leaves room for nuance, useful detours, and complex ideas.")},
+      {"title": ("Une présence sans pression" if is_french else "No pressure to perform"), "description": ("Il n’est pas nécessaire de simplifier excessivement son travail ou de jouer un rôle." if is_french else "There is no need to oversimplify your work or play a role.")},
+      {"title": ("Une diffusion soignée" if is_french else "Careful publishing"), "description": ("Green Gage’s s’occupe de l’édition, de la publication et des formats dérivés lorsque pertinents." if is_french else "Green Gage’s handles editing, publishing, and derivative formats where relevant.")}
+    ] %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
 
-    {% dnd_section max_width=1100, padding={"top": 20, "bottom": 20} %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path='../modules/ecosystem-links.module',
-            heading=("Exemples d’épisodes passés" if is_french else "Examples of Past Episodes")
-          %}{% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+  {% dnd_section max_width=980, padding={"top": 8, "bottom": 16} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='editorial',
+      heading=("Face / Vidéo / Audio" if is_french else "Face / Video / Audio Options"),
+      intro=("<p>L’hôte n’a pas besoin d’apparaître à l’écran. Selon la préférence de l’invité·e, les épisodes peuvent être enregistrés en vidéo avec l’invité·e seulement, en vidéo complète, ou en format principalement audio. Le but est de préserver le confort, la présence et la confidentialité tout en créant un épisode clair et professionnel.</p>" if is_french else "<p>The host does not need to appear on camera. Depending on the guest’s preference, episodes can be recorded as guest-only video, full video, or audio-first conversations. The aim is to protect comfort, presence, and privacy while still creating a clear and professional episode.</p>")
+    %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
 
-    {% dnd_section max_width=980, padding={"top": 20, "bottom": 56} %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path='@hubspot/form', title=("Proposer une conversation" if is_french else "Become a Guest") %}{% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
-  {% end_dnd_area %}
+  {% dnd_section max_width=1100, padding={"top": 8, "bottom": 16} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='episode_examples', heading=("Exemples d’épisodes passés" if is_french else "Examples of Past Episodes"), cards=[
+      {"title": ("Pleine conscience, enfance et développement émotionnel" if is_french else "Mindfulness, childhood, and emotional development")},
+      {"title": ("Guérison naturelle et soin végétal" if is_french else "Natural healing and plant-based care")},
+      {"title": ("Trauma, perception et système nerveux" if is_french else "Trauma, perception, and the nervous system")},
+      {"title": ("Métaphysique, sécurité et sens" if is_french else "Metaphysics, safety, and meaning")}
+    ] %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+
+  {% dnd_section max_width=980, padding={"top": 8, "bottom": 16} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='editorial',
+      heading=("Qui peut participer ?" if is_french else "Who Is a Good Fit?"),
+      intro=("<p>Green Gage’s accueille des chercheur·euses, thérapeutes, éducateur·ices, auteur·ices, philosophes, praticien·nes spirituel·les, écologues, spécialistes de la conscience, psychologues, neuroscientifiques, praticien·nes de l’intégration psychédélique et fondateur·ices construisant des outils ou communautés porteuses de sens.</p>" if is_french else "<p>Green Gage’s welcomes researchers, therapists, educators, authors, philosophers, spiritual practitioners, ecologists, consciousness researchers, psychologists, neuroscientists, psychedelic integration specialists, and founders building meaningful tools or communities.</p>")
+    %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+
+  {% dnd_section max_width=980, padding={"top": 8, "bottom": 56} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='contact_intro', heading=("Prendre contact" if is_french else "Get in touch"), intro=("<p>Si vous pensez qu’une conversation serait pertinente, vous pouvez envoyer quelques informations ci-dessous.</p>" if is_french else "<p>If you feel a conversation would be a good fit, you can share a few details below.</p>") %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+
+  {% dnd_section max_width=980, padding={"top": 0, "bottom": 64} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='@hubspot/form', title=("Proposer une conversation" if is_french else "Become a Guest") %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+{% end_dnd_area %}
 {% endblock body %}
