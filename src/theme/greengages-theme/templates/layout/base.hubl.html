@@ -4,14 +4,20 @@
   label: Base Layout
 -->
 <!doctype html>
-<html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_meta.html_title }}</title>
+    {{ standard_header_includes }}
+  </head>
   <body>
-    {% module "page_language_config" path="/greengages-theme/modules/page-language-config.module", export_to_template_context=True, no_wrapper=True %}
     {% include "../../partials/header.hubl.html" %}
-    <main>
+    <main id="main-content">
       {% block body %}
       {% dnd_area "base_content" %}{% end_dnd_area %}
       {% endblock body %}
     </main>
+    {{ standard_footer_includes }}
   </body>
 </html>
