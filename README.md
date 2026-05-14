@@ -30,3 +30,10 @@ hs project upload
 - Shared section attribute logic is centralized in `partials/macros/section-utils.html`.
 - Repeated nav rendering is centralized in `partials/nav-list.html`.
 - Flow spacing utilities (`flow-sm`, `flow-md`, `flow-lg`) replace repeated inline spacing values.
+
+## Header menu language setup (HubSpot)
+1. In HubSpot, go to **Website > Navigation**.
+2. Create two menus: **Green Gage’s Header FR** and **Green Gage’s Header EN**.
+3. In global content for the Site Header partial, configure `Header Menu FR` and `Header Menu EN` modules.
+4. The header auto-selects EN on `/en` pages and FR otherwise.
+5. If blog URL includes `/fr/thegreengage`, that path is controlled by HubSpot Blog multilingual settings (not hardcoded in theme templates).

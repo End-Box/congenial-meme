@@ -2,10 +2,18 @@
   templateType: global_partial
   label: Site Header
 -->
+{% set current_lang = 'fr' %}
+{% if content and content.language and content.language.languageTag and content.language.languageTag|lower|slice(0,2) == 'en' %}
+  {% set current_lang = 'en' %}
+{% elif html_lang and html_lang|lower|slice(0,2) == 'en' %}
+  {% set current_lang = 'en' %}
+{% elif request.path and request.path|lower|slice(0,3) == '/en' %}
+  {% set current_lang = 'en' %}
+{% endif %}
 <header class="site-header" role="banner">
   <div class="container site-header__inner">
     <div class="site-header__brand-wrap">
-      <a class="site-header__brand" href="/" aria-label="Home">
+      <a class="site-header__brand" href="{{ '/en' if current_lang == 'en' else '/' }}" aria-label="Home">
         {% if theme.brand.logo.src %}
           <img class="site-header__logo" src="{{ theme.brand.logo.src }}" alt="Green Gage logo" loading="eager">
         {% else %}
@@ -15,14 +23,18 @@
     </div>
 
     <nav class="site-header__nav" aria-label="Primary navigation">
-      <div class="site-header__menu">
-        {% module "header_menu" path="@hubspot/menu", label="Header Menu" %}
+      <div class="site-header__menu {{ 'site-header__menu--en' if current_lang == 'en' else 'site-header__menu--fr' }}">
+        {# Configure these two menu modules in HubSpot global content: Header FR / Header EN. #}
+        {% if current_lang == 'en' %}
+          {% module "header_menu_en" path="@hubspot/menu", label="Header Menu EN" %}
+        {% else %}
+          {% module "header_menu_fr" path="@hubspot/menu", label="Header Menu FR" %}
+        {% endif %}
       </div>
     </nav>
 
     <div class="site-header__actions">
       <div class="site-header__language" aria-label="Language selector">
-        {# Native switcher depends on HubSpot multilingual content groups and published variants. FR=/, EN=/en, no /fr. #}
         {% module "header_language_switcher" path="@hubspot/language_switcher", label="Language switcher", display_mode="localized" %}
       </div>
     </div>
