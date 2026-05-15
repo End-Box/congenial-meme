@@ -2,19 +2,7 @@
   templateType: global_partial
   label: Site Header
 -->
-{% set path = request.path|default('')|lower %}
-{% set current_lang = 'fr' %}
-{% if content and content.language and content.language.languageTag and content.language.languageTag|lower|slice(0,2) == 'en' %}
-  {% set current_lang = 'en' %}
-{% elif html_lang and html_lang|lower|slice(0,2) == 'en' %}
-  {% set current_lang = 'en' %}
-{% elif path|slice(0,3) == '/en' %}
-  {% set current_lang = 'en' %}
-{% endif %}
-{% set is_blog_listing = (path == '/fr/thegreengage') or (path == '/en/thegreengage') or simple_list_page or tag or blog_author %}
-{% set blog_listing_fr_url = '/fr/thegreengage' %}
-{% set blog_listing_en_url = '/en/thegreengage' %}
-
+{% include './language-context.hubl.html' %}
 <header class="site-header" role="banner">
   <div class="container site-header__inner">
     <div class="site-header__brand-wrap">
