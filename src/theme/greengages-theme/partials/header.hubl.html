@@ -2,14 +2,19 @@
   templateType: global_partial
   label: Site Header
 -->
+{% set path = request.path|default('')|lower %}
 {% set current_lang = 'fr' %}
 {% if content and content.language and content.language.languageTag and content.language.languageTag|lower|slice(0,2) == 'en' %}
   {% set current_lang = 'en' %}
 {% elif html_lang and html_lang|lower|slice(0,2) == 'en' %}
   {% set current_lang = 'en' %}
-{% elif request.path and request.path|lower|slice(0,3) == '/en' %}
+{% elif path|slice(0,3) == '/en' %}
   {% set current_lang = 'en' %}
 {% endif %}
+{% set is_blog_listing = (path == '/fr/thegreengage') or (path == '/en/thegreengage') or simple_list_page or tag or blog_author %}
+{% set blog_listing_fr_url = '/fr/thegreengage' %}
+{% set blog_listing_en_url = '/en/thegreengage' %}
+
 <header class="site-header" role="banner">
   <div class="container site-header__inner">
     <div class="site-header__brand-wrap">
@@ -34,11 +39,34 @@
     </nav>
 
     <div class="site-header__actions">
-      <div class="site-header__language" aria-label="Language selector">
-        {% module "header_language_switcher" path="@hubspot/language_switcher", label="Language switcher", display_mode="localized" %}
-      </div>
+      {% if is_blog_listing %}
+        <div class="site-header__language site-header__language--fallback" aria-label="Language selector" data-language-switcher-fallback>
+          <button class="lang_switcher_link" type="button" aria-expanded="false" aria-haspopup="true">{{ 'English' if current_lang == 'en' else 'Français' }}</button>
+          <ul class="lang_list_class">
+            <li><a href="{{ blog_listing_fr_url }}">Français</a></li>
+            <li><a href="{{ blog_listing_en_url }}">English</a></li>
+          </ul>
+        </div>
+      {% else %}
+        <div class="site-header__language" aria-label="Language selector">
+          {% module "header_language_switcher" path="@hubspot/language_switcher", label="Language switcher", display_mode="localized" %}
+        </div>
+      {% endif %}
     </div>
 
     <a href="#main-content" class="visually-hidden focusable-skip">Skip to content</a>
   </div>
 </header>
+
+<script>
+(function(){
+  var root=document.querySelector('[data-language-switcher-fallback]');
+  if(!root) return;
+  var btn=root.querySelector('button');
+  function close(){root.classList.remove('is-open'); if(btn) btn.setAttribute('aria-expanded','false');}
+  function open(){root.classList.add('is-open'); if(btn) btn.setAttribute('aria-expanded','true');}
+  if(btn){btn.addEventListener('click',function(e){e.stopPropagation(); root.classList.contains('is-open')?close():open();});}
+  document.addEventListener('click',function(e){if(!root.contains(e.target)) close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') close();});
+})();
+</script>

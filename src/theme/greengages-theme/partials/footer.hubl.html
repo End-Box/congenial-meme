@@ -2,15 +2,33 @@
   templateType: global_partial
   label: Site Footer
 -->
+{% set path = request.path|default('')|lower %}
+{% set current_lang = 'fr' %}
+{% if content and content.language and content.language.languageTag and content.language.languageTag|lower|slice(0,2) == 'en' %}
+  {% set current_lang = 'en' %}
+{% elif html_lang and html_lang|lower|slice(0,2) == 'en' %}
+  {% set current_lang = 'en' %}
+{% elif path|slice(0,3) == '/en' %}
+  {% set current_lang = 'en' %}
+{% endif %}
 <footer class="site-footer" role="contentinfo">
   <div class="container site-footer__inner">
-    <p class="site-footer__reflection">A hub of pathways for inquiry, language, and thoughtful practice.</p>
+    <p class="site-footer__reflection">{{ 'A research studio for consciousness, language, and meaning.' if current_lang == 'en' else 'Un atelier de recherche, de langage et de sens.' }}</p>
     <nav aria-label="Footer navigation">
       <ul class="site-footer__menu">
-        <li><a href="/disclaimer">Disclaimer</a></li>
-        <li><a href="/consulting">Consulting</a></li>
-        <li><a href="/start-here">Start Here</a></li>
-        <li><a href="/ecosystem">Ecosystem</a></li>
+        {% if current_lang == 'en' %}
+          <li><a href="/en/about">About</a></li>
+          <li><a href="/en/thegreengage">Blog</a></li>
+          <li><a href="/en/disclaimer">Disclaimer</a></li>
+          <li><a href="/en/consulting">Consulting</a></li>
+          <li><a href="/en/contact">Contact</a></li>
+        {% else %}
+          <li><a href="/a-propos">À propos</a></li>
+          <li><a href="/fr/thegreengage">Blog</a></li>
+          <li><a href="/disclaimer">Avertissement</a></li>
+          <li><a href="/consulting">Consulting</a></li>
+          <li><a href="/contact">Contact</a></li>
+        {% endif %}
       </ul>
     </nav>
     <p class="site-footer__meta">© {{ local_dt.year }} {{ site_settings.company_name|default('Green Gage') }}</p>
