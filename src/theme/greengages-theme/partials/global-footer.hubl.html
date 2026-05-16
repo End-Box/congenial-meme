@@ -2,10 +2,9 @@
   templateType: global_partial
   label: Global Footer
 -->
-<footer class="site-footer" role="contentinfo">
+<footer class="site-footer site-footer--minimal" role="contentinfo">
   <div class="container site-footer__inner">
-    <div class="site-footer__brand">
-      {% module "footer_logo" path="@hubspot/linked_image", label="Footer logo" %}
+    <div class="site-footer__tagline">
       {% module "footer_tagline" path="@hubspot/rich_text", label="Footer tagline", html="<p>A research studio for consciousness, language, and meaning.</p>" %}
     </div>
 
@@ -13,11 +12,7 @@
       {% module "footer_menu" path="@hubspot/menu", label="Footer menu" %}
     </nav>
 
-    <div class="site-footer__platforms">
-      {% module "footer_platform_links" path="@hubspot/rich_text", label="Footer platform links", html="<p><a href='#'>YouTube</a> · <a href='#'>Substack</a> · <a href='#'>Instagram</a> · <a href='#'>X</a></p>" %}
-    </div>
-
-    <div class="site-footer__bottom">
+    <div class="site-footer__copyright">
       {% module "footer_copyright" path="@hubspot/rich_text", label="Footer copyright", html="<p>© 2026 Green Gage’s</p>" %}
     </div>
   </div>

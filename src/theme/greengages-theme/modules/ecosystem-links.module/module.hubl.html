@@ -1,35 +1,17 @@
-<section class="section" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
+<section class="section ecosystem-page" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}>
   <div class="container flow flow-lg">
-    <h2 class="section-heading">{{ module.heading }}</h2>
-    <ul class="ecosystem-links ecosystem-links--{{ module.style_variant }}">
+    <header class="ecosystem-hero flow flow-sm">
+      <h2 class="section-heading">{{ module.heading }}</h2>
+      {% if module.intro %}<div class="section-body">{{ module.intro }}</div>{% endif %}
+    </header>
+    <ul class="ecosystem-links">
       {% for item in module.items %}
         {% set href = item.link.href|default(item.link.url.href|default('')) %}
-        {% set link_type = item.link.type|default(item.link.url.type|default('EXTERNAL')) %}
-        {% if link_type == 'EMAIL_ADDRESS' and href %}
-          {% set href = 'mailto:' ~ href %}
-        {% elif link_type == 'PHONE_NUMBER' and href %}
-          {% set href = 'tel:' ~ href %}
-        {% endif %}
-
-        {% set rel_values = [] %}
-        {% if item.link.open_in_new_tab %}{% do rel_values.append('noopener') %}{% endif %}
-        {% if item.link.no_follow %}{% do rel_values.append('nofollow') %}{% endif %}
-        {% set rel = rel_values|join(' ') %}
-
-        <li>
-          {% if href %}
-            <a class="surface-card" href="{{ href }}"
-               {% if item.link.open_in_new_tab %}target="_blank"{% endif %}
-               {% if rel %}rel="{{ rel }}"{% endif %}>
-              <strong>{{ item.title }}</strong>
-              {% if item.meta %}<span class="section-body">{{ item.meta }}</span>{% endif %}
-            </a>
-          {% else %}
-            <div class="surface-card">
-              <strong>{{ item.title }}</strong>
-              {% if item.meta %}<span class="section-body">{{ item.meta }}</span>{% endif %}
-            </div>
-          {% endif %}
+        <li class="ecosystem-card{% if item.featured %} ecosystem-card--featured{% endif %}">
+          <p class="section-kicker">{{ item.label }}</p>
+          <h3 class="ecosystem-card__title">{{ item.title }}</h3>
+          <p class="ecosystem-card__description">{{ item.description }}</p>
+          {% if href %}<p><a class="ecosystem-card__cta" href="{{ href }}">{{ item.cta_text|default('Explore') }}</a></p>{% endif %}
         </li>
       {% endfor %}
     </ul>
