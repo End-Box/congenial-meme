@@ -25,7 +25,7 @@
 .site-header__language .lang_switcher_class { margin:0; display:flex; align-items:center; }
 .site-header__language .globe_class { font-size:.82rem; opacity:.75; margin-right:.2rem; }
 .site-header__language .language-chevron { margin-left:.25rem; font-size:.85rem; }
-.site-header__language .lang_switcher_link { border:1px solid var(--color-border); background:var(--gg-parchment, #f2ede4); color:var(--gg-forest, #1a2e1a); opacity:1; }
+.site-header__language .lang_switcher_link { border:1px solid var(--color-border); background:transparent; color:var(--gg-forest, #1a2e1a); opacity:1; }
 .site-header__language .lang_switcher_link,
 .site-header__language .lang_switcher_link * { color:var(--gg-forest, #1a2e1a); -webkit-text-fill-color:currentColor; }
 .site-header__language .lang_switcher_link:hover,

@@ -34,6 +34,28 @@
 {% set website_home_url = main_site_en_url if current_lang == 'en' else main_site_fr_url %}
 {% set language_en_url = blog_listing_en_url if is_blog else main_site_en_url %}
 {% set language_fr_url = blog_listing_fr_url if is_blog else main_site_fr_url %}
+{% if not is_blog %}
+  {% set main_switch_path = content.absolute_url|default(request.full_url|default(path))|replace('https://www.greengages.org', '')|replace('http://www.greengages.org', '')|replace('https://greengages.org', '')|replace('http://greengages.org', '')|split('?')|first %}
+  {% if not main_switch_path or main_switch_path|startswith('http') %}
+    {% set main_switch_path = path|default('/') %}
+  {% endif %}
+  {% if main_switch_path == '/en' or main_switch_path|startswith('/en/') %}
+    {% set language_en_path = main_switch_path %}
+  {% elif main_switch_path == '/' %}
+    {% set language_en_path = '/en' %}
+  {% else %}
+    {% set language_en_path = '/en' ~ main_switch_path %}
+  {% endif %}
+  {% if main_switch_path == '/en' %}
+    {% set language_fr_path = '/' %}
+  {% elif main_switch_path|startswith('/en/') %}
+    {% set language_fr_path = main_switch_path[3:] %}
+  {% else %}
+    {% set language_fr_path = main_switch_path %}
+  {% endif %}
+  {% set language_en_url = 'https://www.greengages.org' ~ language_en_path %}
+  {% set language_fr_url = 'https://www.greengages.org' ~ language_fr_path %}
+{% endif %}
 {% if is_blog_post %}
   {% set translated_en = content.translated_content['en']|default(content.translated_content['en-us']) %}
   {% set translated_fr = content.translated_content['fr']|default(content.translated_content['fr-fr']) %}
