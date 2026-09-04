@@ -1,4 +1,12 @@
 :root {
+  --gg-forest-deep: #132313;
+  --gg-forest: #1a2e1a;
+  --gg-forest-soft: #243924;
+  --gg-forest-lift: #304830;
+  --gg-parchment: #f2ede4;
+  --gg-parchment-muted: #e5ddd1;
+  --gg-gold: #c9a84c;
+  --gg-gold-muted: #b99743;
   --color-ink: #f2ede4;
   --color-ink-soft: #d7cfbf;
   --color-parchment: #1a2e1a;
@@ -23,6 +31,11 @@
 body, main { background: var(--color-bg); color: var(--color-text); }
 .site-header, .site-footer { background: var(--color-bg); border-color: var(--color-border-soft); color: var(--color-text); }
 .surface-card { background: var(--color-surface); border-color: var(--color-border-soft); color: var(--color-text); box-shadow: var(--shadow-soft); }
+.manifesto.surface-card { background: var(--gg-forest-deep); }
+.explore-paths .surface-card,
+.portal-cards .surface-card { background: var(--gg-forest-lift); }
+.recent-posts__item,
+.guest-guide__card { background: var(--gg-forest-soft); }
 .button--primary, .hs-button, .btn-primary, .cta-button { background: var(--color-gold-soft); border-color: var(--color-gold-soft); color: #1a2e1a; }
 .button--primary:hover, .hs-button:hover, .btn-primary:hover, .cta-button:hover { background: #dfc36c; border-color: #dfc36c; }
 .hero-threshold strong, .hero-threshold em,
