@@ -7,7 +7,7 @@
 {% set path = request.path|default('')|lower %}
 {% set request_url = request.full_url|default('')|lower %}
 {% set is_main_site = '://greengages.org/' in request_url or '://www.greengages.org/' in request_url %}
-{% set is_main_site_english = path == '/en' or path|startswith('/en/') or request_url|startswith('https://greengages.org/en') or request_url|startswith('https://www.greengages.org/en') %}
+{% set is_main_site_english = path == '/en' or path|startswith('/en/') or path == 'en' or path|startswith('en/') or request_url|startswith('https://greengages.org/en') or request_url|startswith('https://www.greengages.org/en') %}
 {% set current_lang = 'fr' %}
 {% if is_main_site %}
   {# Main-site routes are authoritative even when HubSpot metadata is stale. #}
@@ -25,19 +25,18 @@
 {% endif %}
 {% set is_blog_post = content and content.post_body %}
 {% set is_blog_listing = (group and not is_blog_post) or (contents and not is_blog_post) or simple_list_page or tag or blog_author %}
-{% set is_blog = is_blog_listing or is_blog_post %}
+{% set is_blog = (is_blog_listing or is_blog_post) and not is_main_site %}
 {% set blog_listing_fr_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/fr' %}
 {% set blog_listing_en_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/en' %}
-{% set website_home_url = 'https://greengages.org/en' if current_lang == 'en' else 'https://greengages.org/' %}
+{% set main_site_en_url = 'https://www.greengages.org/en' %}
+{% set main_site_fr_url = 'https://www.greengages.org/' %}
+{% set website_home_url = main_site_en_url if current_lang == 'en' else main_site_fr_url %}
 {% if is_blog %}
   {# Safe fallback when a translated post relationship is unavailable. #}
   {% set language_en_url = blog_listing_en_url %}
   {% set language_fr_url = blog_listing_fr_url %}
-{% elif current_lang == 'en' %}
-  {% set language_en_url = 'https://greengages.org' ~ path %}
-  {% set language_fr_path = path|slice(3)|default('/') %}
-  {% set language_fr_url = 'https://greengages.org' ~ (language_fr_path if language_fr_path else '/') %}
 {% else %}
-  {% set language_fr_url = 'https://greengages.org' ~ (path if path else '/') %}
-  {% set language_en_url = 'https://greengages.org/en' ~ (path if path != '/' else '') %}
+  {# Main-site language controls always return to canonical language homes. #}
+  {% set language_en_url = main_site_en_url %}
+  {% set language_fr_url = main_site_fr_url %}
 {% endif %}
