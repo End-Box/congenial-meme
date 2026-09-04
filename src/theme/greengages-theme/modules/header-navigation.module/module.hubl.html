@@ -1,4 +1,19 @@
-{% include '../../partials/language-context.hubl.html' %}
+{# Modules cannot resolve partial includes outside their module directory after project packaging. #}
+{% set header_path = request.path|default('')|lower %}
+{% set header_is_blog = group or (content and content.post_body) or simple_list_page or tag or blog_author %}
+{% set header_lang = 'fr' %}
+{% if header_path == '/en' or header_path|startswith('/en/') or header_path == 'en' or header_path|startswith('en/') %}
+  {% set header_lang = 'en' %}
+{% elif header_path == '/fr' or header_path|startswith('/fr/') %}
+  {% set header_lang = 'fr' %}
+{% elif content and content.language and content.language.languageTag and content.language.languageTag|lower|startswith('en') %}
+  {% set header_lang = 'en' %}
+{% elif group and group.language and group.language.languageTag and group.language.languageTag|lower|startswith('en') %}
+  {% set header_lang = 'en' %}
+{% elif html_lang and html_lang|lower|startswith('en') %}
+  {% set header_lang = 'en' %}
+{% endif %}
+{% set header_context = ('blog_' if header_is_blog else 'main_') ~ header_lang %}
 {% set selected_menu = module.main_en_menu if header_context == 'main_en'
   else module.main_fr_menu if header_context == 'main_fr'
   else module.blog_en_menu if header_context == 'blog_en'
