@@ -35,26 +35,29 @@
 {% set language_en_url = blog_listing_en_url if is_blog else main_site_en_url %}
 {% set language_fr_url = blog_listing_fr_url if is_blog else main_site_fr_url %}
 {% if not is_blog %}
-  {% set main_switch_path = content.absolute_url|default(request.full_url|default(path))|replace('https://www.greengages.org', '')|replace('http://www.greengages.org', '')|replace('https://greengages.org', '')|replace('http://greengages.org', '')|split('?')|first %}
-  {% if not main_switch_path or main_switch_path|startswith('http') %}
-    {% set main_switch_path = path|default('/') %}
+  {% set main_current_url = content.absolute_url|default(request.full_url|default(website_home_url)) %}
+  {% set main_url_without_query = main_current_url|split('?')|first %}
+  {% set main_fallback_en_url = main_current_url %}
+  {% set main_fallback_fr_url = main_current_url %}
+  {% if main_url_without_query in ['https://www.greengages.org', 'https://www.greengages.org/', 'https://greengages.org', 'https://greengages.org/', 'https://www.greengages.org/en', 'https://www.greengages.org/en/', 'https://greengages.org/en', 'https://greengages.org/en/'] %}
+    {% set main_fallback_en_url = main_site_en_url %}
+    {% set main_fallback_fr_url = main_site_fr_url %}
+  {% elif '/guests' in main_url_without_query %}
+    {% set main_fallback_en_url = 'https://www.greengages.org/en/guests' %}
+    {% set main_fallback_fr_url = 'https://www.greengages.org/guests' %}
+  {% elif '/consulting' in main_url_without_query %}
+    {% set main_fallback_en_url = 'https://www.greengages.org/en/consulting' %}
+    {% set main_fallback_fr_url = 'https://www.greengages.org/consulting' %}
   {% endif %}
-  {% if main_switch_path == '/en' or main_switch_path|startswith('/en/') %}
-    {% set language_en_path = main_switch_path %}
-  {% elif main_switch_path == '/' %}
-    {% set language_en_path = '/en' %}
+  {% set translated_en = content.translated_content['en']|default(content.translated_content['en-us']) %}
+  {% set translated_fr = content.translated_content['fr']|default(content.translated_content['fr-fr']) %}
+  {% if current_lang == 'en' %}
+    {% set language_en_url = main_current_url %}
+    {% set language_fr_url = translated_fr.absolute_url|default(main_fallback_fr_url) %}
   {% else %}
-    {% set language_en_path = '/en' ~ main_switch_path %}
+    {% set language_en_url = translated_en.absolute_url|default(main_fallback_en_url) %}
+    {% set language_fr_url = main_current_url %}
   {% endif %}
-  {% if main_switch_path == '/en' %}
-    {% set language_fr_path = '/' %}
-  {% elif main_switch_path|startswith('/en/') %}
-    {% set language_fr_path = main_switch_path[3:] %}
-  {% else %}
-    {% set language_fr_path = main_switch_path %}
-  {% endif %}
-  {% set language_en_url = 'https://www.greengages.org' ~ language_en_path %}
-  {% set language_fr_url = 'https://www.greengages.org' ~ language_fr_path %}
 {% endif %}
 {% if is_blog_post %}
   {% set translated_en = content.translated_content['en']|default(content.translated_content['en-us']) %}
