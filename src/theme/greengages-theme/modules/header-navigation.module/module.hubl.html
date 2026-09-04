@@ -19,9 +19,27 @@
   else module.blog_en_menu if header_context == 'blog_en'
   else module.blog_fr_menu %}
 
+{% macro render_menu_items(items, depth) %}
+  <ul>
+    {% for item in items %}
+      <li class="hs-menu-item hs-menu-depth-{{ depth }}{{ ' active' if item.activeNode }}{{ ' active-branch' if item.activeBranch }}">
+        <a href="{{ item.url }}"{% if item.linkTarget %} target="{{ item.linkTarget }}"{% endif %}{% if item.activeNode %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {% if item.children %}{{ render_menu_items(item.children, depth + 1) }}{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
 {% if selected_menu %}
+  {% set selected_menu_tree = menu(selected_menu) %}
   <div class="site-header__resolved-menu" data-menu-context="{{ header_context }}" data-menu-id="{{ selected_menu }}">
-    {% menu "resolved_header_menu" id=selected_menu, overrideable=false, flow="horizontal", flyouts="true", max_levels="2" %}
+    {% if selected_menu_tree and selected_menu_tree.children %}
+      <div class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal">
+        {{ render_menu_items(selected_menu_tree.children, 1) }}
+      </div>
+    {% elif is_in_editor %}
+      <p class="site-header__menu-notice">The selected {{ header_context|replace('_', ' ') }} menu has no published items.</p>
+    {% endif %}
   </div>
 {% elif is_in_editor %}
   <p class="site-header__menu-notice">Select the {{ header_context|replace('_', ' ') }} menu in Contextual Header Navigation.</p>

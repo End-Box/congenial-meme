@@ -6,9 +6,13 @@
 .site-header__wordmark { font-family: var(--font-display); font-size: 1.4rem; }
 .site-header__logo { max-height: 2rem; width: auto; display: block; }
 .site-header__nav { justify-self: center; display:flex; align-items:center; }
-.site-header__menu .hs-menu-wrapper > ul,
-.site-header__menu .hs-menu-wrapper > ul ul { list-style:none; margin:0; padding:0; display:flex; align-items:center; justify-content:center; gap:clamp(1rem,2.2vw,2rem); }
-.site-header__menu .hs-menu-wrapper > ul > li { display:flex; align-items:center; margin:0; }
+.site-header__menu .hs-menu-wrapper ul { list-style:none; margin:0; padding:0; }
+.site-header__menu .hs-menu-wrapper > ul { display:flex; align-items:center; justify-content:center; gap:clamp(1rem,2.2vw,2rem); }
+.site-header__menu .hs-menu-wrapper li { position:relative; margin:0; }
+.site-header__menu .hs-menu-wrapper > ul > li { display:flex; align-items:center; }
+.site-header__menu .hs-menu-wrapper li > ul { position:absolute; top:100%; left:0; display:none; min-width:12rem; padding:.4rem; border:1px solid var(--color-border); border-radius:.7rem; background:var(--color-surface); box-shadow:var(--shadow-soft); z-index:70; }
+.site-header__menu .hs-menu-wrapper li:hover > ul,
+.site-header__menu .hs-menu-wrapper li:focus-within > ul { display:block; }
 .site-header__menu a,
 .site-header__language a,
 .site-header__language button { display:inline-flex; align-items:center; justify-content:center; min-height:2.3rem; line-height:1; font:inherit; font-size:.95rem; color:var(--color-text); text-decoration:none; padding:.34rem .56rem; border-radius:999px; }
