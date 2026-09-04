@@ -15,6 +15,6 @@
 {% elif path|slice(0,3) == '/en' %}
   {% set current_lang = 'en' %}
 {% endif %}
-{% set is_blog_listing = (path == '/fr/thegreengage') or (path == '/en/thegreengage') or simple_list_page or tag or blog_author %}
+{% set is_blog_listing = (path == '/fr') or (path == '/fr/thegreengage') or (path == '/en/thegreengage') or simple_list_page or tag or blog_author %}
 {% set blog_listing_fr_url = '/fr/thegreengage' %}
 {% set blog_listing_en_url = '/en/thegreengage' %}
