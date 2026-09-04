@@ -6,13 +6,16 @@
 #}
 {% set path = request.path|default('')|lower %}
 {% set current_lang = 'fr' %}
-{% if content and content.language and content.language.languageTag and content.language.languageTag|lower|slice(0,2) == 'en' %}
+{# Explicit published language routes take precedence when HubSpot metadata is stale. #}
+{% if path == '/en' or path|slice(0,4) == '/en/' %}
+  {% set current_lang = 'en' %}
+{% elif path == '/fr' or path|slice(0,4) == '/fr/' %}
+  {% set current_lang = 'fr' %}
+{% elif content and content.language and content.language.languageTag and content.language.languageTag|lower|slice(0,2) == 'en' %}
   {% set current_lang = 'en' %}
 {% elif group and group.language and group.language.languageTag and group.language.languageTag|lower|slice(0,2) == 'en' %}
   {% set current_lang = 'en' %}
 {% elif html_lang and html_lang|lower|slice(0,2) == 'en' %}
-  {% set current_lang = 'en' %}
-{% elif path|slice(0,3) == '/en' %}
   {% set current_lang = 'en' %}
 {% endif %}
 {% set is_blog_post = content and content.post_body %}

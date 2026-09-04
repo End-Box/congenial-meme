@@ -59,20 +59,41 @@ body, main { background: var(--color-bg); color: var(--color-text); }
 .explore-paths strong, .explore-paths em,
 .portal-cards strong, .portal-cards em { color: var(--color-gold-soft); }
 
-.theme-home .portal-cards .surface-card,
-.theme-home .explore-paths .surface-card,
-.theme-home .cta-band.surface-card {
+body:not(.theme-blog):not(.theme-consulting) .portal-cards-section,
+body:not(.theme-blog):not(.theme-consulting) .explore-paths,
+body:not(.theme-blog):not(.theme-consulting) .manifesto-section,
+body:not(.theme-blog):not(.theme-consulting) .cta-band-section,
+body:not(.theme-blog):not(.theme-consulting) .section.ecosystem-page {
+  background: var(--color-bg);
+  background-image: none;
+}
+body:not(.theme-blog):not(.theme-consulting) .portal-cards .surface-card,
+body:not(.theme-blog):not(.theme-consulting) .explore-paths .surface-card,
+body:not(.theme-blog):not(.theme-consulting) .manifesto.surface-card,
+body:not(.theme-blog):not(.theme-consulting) .cta-band.surface-card {
   background: var(--gg-forest);
   border-color: var(--gg-forest-lift);
-  color: var(--color-sage);
+  color: var(--gg-parchment);
 }
-.theme-home .portal-cards .surface-card h3,
-.theme-home .explore-paths .surface-card h3,
-.theme-home .cta-band.surface-card h2 { color: var(--gg-gold); }
-.theme-home .portal-cards .surface-card .section-body,
-.theme-home .explore-paths .surface-card .section-body { color: var(--color-sage); }
-.theme-home .portal-cards .surface-card .button { background: var(--color-surface); border-color: var(--color-gage-green); color: var(--color-gage-green); }
-.theme-home .cta-band.surface-card .button--primary { background: var(--color-accent); border-color: var(--color-sage); color: #fff; }
+body:not(.theme-blog):not(.theme-consulting) .portal-cards .surface-card :where(h2, h3, .section-body),
+body:not(.theme-blog):not(.theme-consulting) .explore-paths .surface-card :where(h2, h3, .section-body),
+body:not(.theme-blog):not(.theme-consulting) .manifesto.surface-card :where(h2, h3, .section-body, p),
+body:not(.theme-blog):not(.theme-consulting) .cta-band.surface-card :where(h2, h3, p) { color: var(--gg-parchment); }
+body:not(.theme-blog):not(.theme-consulting) .portal-cards .surface-card:hover,
+body:not(.theme-blog):not(.theme-consulting) .explore-paths .surface-card:hover,
+body:not(.theme-blog):not(.theme-consulting) .manifesto.surface-card:hover,
+body:not(.theme-blog):not(.theme-consulting) .ecosystem-card:hover,
+body:not(.theme-blog):not(.theme-consulting) .cta-band.surface-card:hover { border-color: var(--gg-gold); }
+body:not(.theme-blog):not(.theme-consulting) .portal-cards .surface-card .button {
+  background: transparent;
+  border-color: var(--gg-gold);
+  color: var(--gg-gold);
+}
+body:not(.theme-blog):not(.theme-consulting) .cta-band.surface-card .button--primary {
+  background: var(--gg-gold);
+  border-color: var(--gg-gold);
+  color: var(--gg-forest);
+}
 
 .consulting-page { padding: clamp(3.5rem, 8vw, 7rem) 0; }
 .consulting-page__inner { width: min(100% - 2rem, 780px); margin-inline: auto; }
