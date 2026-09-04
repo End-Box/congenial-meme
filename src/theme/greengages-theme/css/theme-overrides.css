@@ -7,37 +7,76 @@
   --gg-parchment-muted: #e5ddd1;
   --gg-gold: #c9a84c;
   --gg-gold-muted: #b99743;
-  --color-ink: #f2ede4;
-  --color-ink-soft: #d7cfbf;
-  --color-parchment: #1a2e1a;
-  --color-cream: #223b22;
-  --color-warm-paper: #294529;
-  --color-border: #536b4a;
-  --color-border-soft: #40583c;
-  --color-gage-green: #1a2e1a;
-  --color-gage-green-dark: #102010;
-  --color-sage: #9caf88;
-  --color-sage-soft: #304b30;
+  --color-ink: #1e1f24;
+  --color-ink-soft: #585b67;
+  --color-parchment: #f8f6f2;
+  --color-cream: #ffffff;
+  --color-warm-paper: #f2ede4;
+  --color-border: #d9d5cb;
+  --color-border-soft: #e7e2d8;
+  --color-gage-green: #2d5b55;
+  --color-gage-green-dark: #1a2e1a;
+  --color-sage: #7a9e7e;
+  --color-sage-soft: #edf1ea;
   --color-gold-soft: #c9a84c;
   --color-apricot-soft: #d8c179;
   --shadow-soft: 0 12px 30px rgba(5, 15, 5, 0.18);
   --shadow-green-soft: 0 16px 40px rgba(5, 15, 5, 0.24);
-  --color-bg: #1a2e1a;
-  --color-surface: #223b22;
-  --color-text: #f2ede4;
-  --color-muted: #d7cfbf;
-  --color-accent: #c9a84c;
+  --color-bg: #f8f6f2;
+  --color-surface: #ffffff;
+  --color-text: #1e1f24;
+  --color-muted: #585b67;
+  --color-accent: #2d5b55;
 }
 body, main { background: var(--color-bg); color: var(--color-text); }
 .site-header, .site-footer { background: var(--color-bg); border-color: var(--color-border-soft); color: var(--color-text); }
 .surface-card { background: var(--color-surface); border-color: var(--color-border-soft); color: var(--color-text); box-shadow: var(--shadow-soft); }
-.manifesto.surface-card { background: var(--gg-forest-deep); }
-.explore-paths .surface-card,
-.portal-cards .surface-card { background: var(--gg-forest-lift); }
-.recent-posts__item,
-.guest-guide__card { background: var(--gg-forest-soft); }
+.theme-blog,
+.theme-consulting,
+.blog-index,
+.blog-listing,
+.blog-post,
+.consulting-page {
+  --color-bg: var(--gg-forest);
+  --color-surface: var(--gg-forest-soft);
+  --color-text: var(--gg-parchment);
+  --color-muted: var(--gg-parchment-muted);
+  --color-accent: var(--gg-gold);
+  --color-ink: var(--gg-parchment);
+  --color-ink-soft: var(--gg-parchment-muted);
+  --color-cream: var(--gg-forest-soft);
+  --color-border: #536b4a;
+  --color-border-soft: #40583c;
+  --color-gage-green: var(--gg-gold);
+  --color-sage-soft: var(--gg-forest-lift);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.blog-index .surface-card,
+.blog-listing .surface-card,
+.blog-post .surface-card { background: var(--color-surface); color: var(--color-text); }
 .button--primary, .hs-button, .btn-primary, .cta-button { background: var(--color-gold-soft); border-color: var(--color-gold-soft); color: #1a2e1a; }
 .button--primary:hover, .hs-button:hover, .btn-primary:hover, .cta-button:hover { background: #dfc36c; border-color: #dfc36c; }
 .hero-threshold strong, .hero-threshold em,
 .explore-paths strong, .explore-paths em,
 .portal-cards strong, .portal-cards em { color: var(--color-gold-soft); }
+
+.consulting-page { padding: clamp(3.5rem, 8vw, 7rem) 0; }
+.consulting-page__inner { width: min(100% - 2rem, 780px); margin-inline: auto; }
+.consulting-page__eyebrow { color: var(--gg-gold); letter-spacing: .12em; text-transform: uppercase; }
+.consulting-page h1 { max-width: 12ch; font-size: clamp(2.8rem, 8vw, 6.5rem); color: var(--gg-parchment); }
+.consulting-page h2 { font-size: clamp(1.8rem, 4vw, 3rem); color: var(--gg-parchment); }
+.consulting-page strong, .consulting-page em { color: var(--gg-gold); }
+.consulting-page .consulting-page__section { padding-block: clamp(2.5rem, 6vw, 5rem); border-top: 1px solid color-mix(in srgb, var(--color-sage) 50%, transparent); background: transparent; }
+.consulting-page__lead { max-width: 62ch; font-size: clamp(1.15rem, 2.5vw, 1.45rem); }
+.consulting-page__clusters, .consulting-page__buyers { display: grid; gap: 1rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.consulting-page__clusters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.consulting-page__clusters li { padding-top: .75rem; border-top: 2px solid var(--gg-gold); font-family: var(--font-display); font-size: 1.25rem; }
+.consulting-page__case-study { margin-block: 2rem; padding: clamp(1.25rem, 4vw, 2rem); border-left: 3px solid var(--gg-gold); background: var(--gg-forest-soft); }
+.consulting-page__buyers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.consulting-page__buyers li { padding-top: 1rem; border-top: 1px solid var(--color-border-soft); }
+.consulting-page__buyers span { display: block; color: var(--color-sage); }
+.consulting-page__form { margin-top: 2rem; }
+@media (max-width: 600px) {
+  .consulting-page__clusters, .consulting-page__buyers { grid-template-columns: 1fr; }
+}

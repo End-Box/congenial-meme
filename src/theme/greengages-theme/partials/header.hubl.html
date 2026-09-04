@@ -6,7 +6,7 @@
 <header class="site-header" role="banner">
   <div class="container site-header__inner">
     <div class="site-header__brand-wrap">
-      <a class="site-header__brand" href="https://thegreengage-substack-342637523.hs-sites-na3.com/" aria-label="Home" data-skip-lang-url-rewrite="true">
+      <a class="site-header__brand hs-skip-lang-url-rewrite" href="{{ website_home_url }}" aria-label="{{ 'Home' if current_lang == 'en' else 'Accueil' }}">
         {% if theme.brand.logo.src %}
           <img class="site-header__logo" src="{{ theme.brand.logo.src }}" alt="Green Gage logo" loading="eager">
         {% else %}
@@ -29,10 +29,10 @@
     <div class="site-header__actions">
       {% if is_blog_listing %}
         <div class="site-header__language site-header__language--fallback" aria-label="Language selector" data-language-switcher-fallback>
-          <button class="lang_switcher_link" type="button" aria-expanded="false" aria-haspopup="true">{{ 'English' if current_lang == 'en' else 'Français' }}</button>
+          <button class="lang_switcher_link" type="button" aria-expanded="false" aria-haspopup="true"><span class="globe_class" aria-hidden="true">&#127760;</span><span>{{ 'English' if current_lang == 'en' else 'Français' }}</span></button>
           <ul class="lang_list_class">
-            <li><a href="{{ blog_listing_fr_url }}">Français</a></li>
-            <li><a href="{{ blog_listing_en_url }}">English</a></li>
+            <li><a class="hs-skip-lang-url-rewrite" href="{{ blog_listing_en_url }}" lang="en">English</a></li>
+            <li><a class="hs-skip-lang-url-rewrite" href="{{ blog_listing_fr_url }}" lang="fr">Français</a></li>
           </ul>
         </div>
       {% else %}

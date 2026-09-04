@@ -20,7 +20,7 @@
     {{ require_css(get_asset_url('../../css/utilities/helpers.css')) }}
     {{ require_css(get_asset_url('../../css/theme-overrides.css')) }}
   </head>
-  <body>
+  <body class="{{ builtin_body_classes }} {% block body_class %}{% endblock body_class %}">
     {% global_partial path='../../partials/header.hubl.html' %}
     <main id="main-content">
       {% block body %}{% endblock body %}

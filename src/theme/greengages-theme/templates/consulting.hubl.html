@@ -5,30 +5,63 @@
   screenshotPath: ../images/template-consulting.png
 -->
 {% extends './layout/base.hubl.html' %}
+{% block body_class %}theme-consulting{% endblock body_class %}
 
 {% block body %}
-  {% dnd_area 'consulting_main', class='body-container-wrapper' %}
-    {% dnd_section max_width=960, padding={"top": 56, "bottom": 24} %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path='../modules/rich-text-section.module',
-            heading='Consulting',
-            content='<p>I work with people and organizations navigating complexity at the edge of language, systems, and lived experience.</p>',
-            section_id='consulting-intro',
-            style_variant='narrow'
-          %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+<article class="consulting-page">
+  <div class="consulting-page__inner flow flow-lg">
+    <header class="flow flow-md">
+      <p class="consulting-page__eyebrow">Green Gage's</p>
+      <h1>Cannabis Aroma Intelligence</h1>
+      <p class="consulting-page__lead">The conventional <em>indica / sativa / hybrid</em> system is a botanical classification being used as a consumer-experience guide. It does not reliably predict flavour, effect, or purchase behaviour.</p>
+      <p class="consulting-page__lead"><strong>There is a better map.</strong></p>
+    </header>
 
-    {% dnd_section max_width=1100, padding={"top": 8, "bottom": 64} %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path='../modules/service-pillars.module' %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
-  {% end_dnd_area %}
+    <section class="consulting-page__section flow flow-md">
+      <p class="consulting-page__eyebrow">The framework</p>
+      <h2>Cannabis Aroma Intelligence Framework</h2>
+      <p>Terpene profiles provide a more meaningful basis for differentiating a cannabis portfolio. The framework maps a company's strain portfolio across three publicly revealed aroma clusters:</p>
+      <ul class="consulting-page__clusters">
+        <li>Fruity</li>
+        <li>Dessert</li>
+        <li>Earthy</li>
+      </ul>
+    </section>
+
+    <section class="consulting-page__section flow flow-md">
+      <p class="consulting-page__eyebrow">Case study</p>
+      <h2>A more useful portfolio question</h2>
+      <div class="consulting-page__case-study flow flow-sm">
+        <p>A leading Canadian licensed producer used the framework to shift the portfolio question from <em>“Do we have enough indica?”</em> toward <em>“Which aroma clusters are undersupplied in our range?”</em></p>
+        <p>The resulting intelligence informed strain selection and product development decisions.</p>
+      </div>
+    </section>
+
+    <section class="consulting-page__section flow flow-md">
+      <p class="consulting-page__eyebrow">Buyer context</p>
+      <h2>Where the intelligence applies</h2>
+      <ul class="consulting-page__buyers">
+        <li><strong>Licensed Producers</strong><span>Portfolio strategy</span></li>
+        <li><strong>Retailers</strong><span>Inventory curation</span></li>
+        <li><strong>Brands</strong><span>Positioning and differentiation</span></li>
+        <li><strong>Multi-State Operators</strong><span>Cross-market coherence</span></li>
+      </ul>
+    </section>
+
+    <section class="consulting-page__section flow flow-md">
+      <p class="consulting-page__eyebrow">The point of view</p>
+      <h2>The data is reproducible.<br>The interpretation is not.</h2>
+      <p>Working with Green Gage's means the framework comes with a point of view. The differentiator is not simply having data; it is interpreting portfolio structure coherently enough to inform decisions.</p>
+    </section>
+
+    <section class="consulting-page__section flow flow-md" id="discovery-conversation">
+      <p class="consulting-page__eyebrow">Contact</p>
+      <h2>Book a discovery conversation</h2>
+      <p>For consulting enquiries, write to tgage.business@gmail.com or use the form below.</p>
+      <div class="consulting-page__form">
+        {% module "consulting_contact_form" path="@hubspot/form", label="Consulting contact form" %}
+      </div>
+    </section>
+  </div>
+</article>
 {% endblock body %}

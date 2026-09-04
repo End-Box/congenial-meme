@@ -10,6 +10,8 @@
 {% set current_lang = 'fr' %}
 {% if content and content.language and content.language.languageTag and content.language.languageTag|lower|slice(0,2) == 'en' %}
   {% set current_lang = 'en' %}
+{% elif group and group.language and group.language.languageTag and group.language.languageTag|lower|slice(0,2) == 'en' %}
+  {% set current_lang = 'en' %}
 {% elif html_lang and html_lang|lower|slice(0,2) == 'en' %}
   {% set current_lang = 'en' %}
 {% elif path|slice(0,3) == '/en' %}
@@ -18,3 +20,4 @@
 {% set is_blog_listing = (path == '/fr') or (path == '/fr/') or (contents and not content.post_body) or simple_list_page or tag or blog_author %}
 {% set blog_listing_fr_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/fr' %}
 {% set blog_listing_en_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/' %}
+{% set website_home_url = '/en' if current_lang == 'en' else '/' %}
