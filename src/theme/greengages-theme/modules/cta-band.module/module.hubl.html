@@ -1,4 +1,4 @@
-<section class="section cta-band-section" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
+<section class="section" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
   <div class="container surface-card cta-band cta-band--{{ module.style_variant }}">
     <h2>{{ module.heading }}</h2>
     {% if module.cta_text and module.cta_link.href %}

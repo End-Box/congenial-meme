@@ -5,9 +5,14 @@
   - This HubSpot blog's published listing variants are /fr and /en
 #}
 {% set path = request.path|default('')|lower %}
+{% set request_url = request.full_url|default('')|lower %}
+{% set is_main_site = '://greengages.org/' in request_url or '://www.greengages.org/' in request_url %}
+{% set is_main_site_english = path == '/en' or path|startswith('/en/') or request_url|startswith('https://greengages.org/en') or request_url|startswith('https://www.greengages.org/en') %}
 {% set current_lang = 'fr' %}
-{# Explicit published language routes take precedence when HubSpot metadata is stale. #}
-{% if path == '/en' or path|startswith('/en/') %}
+{% if is_main_site %}
+  {# Main-site routes are authoritative even when HubSpot metadata is stale. #}
+  {% set current_lang = 'en' if is_main_site_english else 'fr' %}
+{% elif path == '/en' or path|startswith('/en/') %}
   {% set current_lang = 'en' %}
 {% elif path == '/fr' or path|startswith('/fr/') %}
   {% set current_lang = 'fr' %}
