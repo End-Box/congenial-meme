@@ -6,7 +6,7 @@ A calm, editorial HubSpot CMS theme built with HubL templates and custom modules
 
 - Project name: `greengages-theme`
 - Project reference: `@project/greengages-theme`
-- HubSpot platform version: `2026-03`
+- HubSpot platform version: `2026.03`
 
 ## Local workflow
 
