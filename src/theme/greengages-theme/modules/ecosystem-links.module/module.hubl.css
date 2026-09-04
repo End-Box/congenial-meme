@@ -1,7 +1,9 @@
 .ecosystem-page { background: radial-gradient(circle at top left, rgba(198,217,111,.18), transparent 30rem), linear-gradient(180deg,#12382f 0%,#1f5848 46%,#f7f1e6 100%); color: #fbf7ef; }
 .ecosystem-hero .section-body { color: rgba(251,247,239,.9); max-width: 72ch; }
 .ecosystem-links { list-style:none; margin:0; padding:0; display:grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,17rem),1fr)); gap:clamp(1rem,2vw,1.5rem); }
-.ecosystem-card { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border-soft); border-radius: 1.25rem; box-shadow: 0 20px 50px rgba(7,29,24,.18); padding:1.1rem; }
-.ecosystem-card .section-kicker { color: var(--color-muted); }
+.ecosystem-card { background: var(--gg-forest, #1a2e1a); color: var(--color-sage, #7a9e7e); border: 1px solid var(--gg-forest-lift, #304830); border-radius: 1.25rem; box-shadow: 0 20px 50px rgba(7,29,24,.18); padding:1.1rem; }
+.ecosystem-card .section-kicker,
+.ecosystem-card__description { color: var(--color-sage, #7a9e7e); }
+.ecosystem-card__title { color: var(--gg-gold, #c9a84c); }
 .ecosystem-card__cta { color: var(--gg-gold, #c9a84c); text-decoration: none; font-weight: 600; }
 .ecosystem-card:hover { border-color: var(--gg-gold, #c9a84c); }

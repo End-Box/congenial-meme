@@ -27,19 +27,13 @@
     </nav>
 
     <div class="site-header__actions">
-      {% if is_blog_listing %}
-        <div class="site-header__language site-header__language--fallback" aria-label="Language selector" data-language-switcher-fallback>
-          <button class="lang_switcher_link" type="button" aria-expanded="false" aria-haspopup="true"><span class="globe_class" aria-hidden="true">&#127760;</span><span>{{ 'English' if current_lang == 'en' else 'Français' }}</span></button>
-          <ul class="lang_list_class">
-            <li><a class="hs-skip-lang-url-rewrite" href="{{ blog_listing_en_url }}" lang="en">English</a></li>
-            <li><a class="hs-skip-lang-url-rewrite" href="{{ blog_listing_fr_url }}" lang="fr">Français</a></li>
-          </ul>
-        </div>
-      {% else %}
-        <div class="site-header__language" aria-label="Language selector">
-          {% module "header_language_switcher" path="@hubspot/language_switcher", label="Language switcher", display_mode="localized" %}
-        </div>
-      {% endif %}
+      <div class="site-header__language" aria-label="Language selector" data-language-switcher-fallback>
+        <button class="lang_switcher_link" type="button" aria-expanded="false" aria-haspopup="true"><span class="globe_class" aria-hidden="true">&#127760;</span><span>{{ 'English' if current_lang == 'en' else 'Français' }}</span></button>
+        <ul class="lang_list_class">
+          <li><a class="hs-skip-lang-url-rewrite" href="{{ language_en_url }}" lang="en"{% if current_lang == 'en' %} aria-current="page"{% endif %}>English</a></li>
+          <li><a class="hs-skip-lang-url-rewrite" href="{{ language_fr_url }}" lang="fr"{% if current_lang == 'fr' %} aria-current="page"{% endif %}>Français</a></li>
+        </ul>
+      </div>
     </div>
 
     <a href="#main-content" class="visually-hidden focusable-skip">Skip to content</a>

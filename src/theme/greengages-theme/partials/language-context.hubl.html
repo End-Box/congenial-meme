@@ -2,9 +2,7 @@
   Shared language context
   - Normal site FR pages are at /
   - Normal site EN pages are under /en
-  - This HubSpot blog's published listing variants are:
-    FR: /fr
-    EN: /
+  - This HubSpot blog's published listing variants are /fr and /en
 #}
 {% set path = request.path|default('')|lower %}
 {% set current_lang = 'fr' %}
@@ -17,7 +15,21 @@
 {% elif path|slice(0,3) == '/en' %}
   {% set current_lang = 'en' %}
 {% endif %}
-{% set is_blog_listing = (path == '/fr') or (path == '/fr/') or (contents and not content.post_body) or simple_list_page or tag or blog_author %}
+{% set is_blog_post = content and content.post_body %}
+{% set is_blog_listing = (group and not is_blog_post) or (contents and not is_blog_post) or simple_list_page or tag or blog_author %}
+{% set is_blog = is_blog_listing or is_blog_post %}
 {% set blog_listing_fr_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/fr' %}
-{% set blog_listing_en_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/' %}
-{% set website_home_url = '/en' if current_lang == 'en' else '/' %}
+{% set blog_listing_en_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/en' %}
+{% set website_home_url = 'https://greengages.org/en' if current_lang == 'en' else 'https://greengages.org/' %}
+{% if is_blog %}
+  {# Safe fallback when a translated post relationship is unavailable. #}
+  {% set language_en_url = blog_listing_en_url %}
+  {% set language_fr_url = blog_listing_fr_url %}
+{% elif current_lang == 'en' %}
+  {% set language_en_url = 'https://greengages.org' ~ path %}
+  {% set language_fr_path = path|slice(3)|default('/') %}
+  {% set language_fr_url = 'https://greengages.org' ~ (language_fr_path if language_fr_path else '/') %}
+{% else %}
+  {% set language_fr_url = 'https://greengages.org' ~ (path if path else '/') %}
+  {% set language_en_url = 'https://greengages.org/en' ~ (path if path != '/' else '') %}
+{% endif %}

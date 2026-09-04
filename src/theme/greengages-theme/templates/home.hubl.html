@@ -5,6 +5,7 @@
   screenshotPath: ../images/template-home.png
 -->
 {% extends './layout/base.hubl.html' %}
+{% block body_class %}theme-home{% endblock body_class %}
 
 {% block body %}
   {% dnd_area 'home_main', class='body-container-wrapper' %}
