@@ -8,11 +8,15 @@
 {% set is_blog_post = content and content.post_body %}
 {% set is_blog = group or is_blog_post or simple_list_page or tag or blog_author %}
 {% set main_editor_lang = request.query_dict.hsLang|default(request.query_dict.hslang|default(request.query_dict.language|default('')))|lower %}
+{% set main_page_url = content.absolute_url|default(request.full_url|default(''))|lower %}
 {% set current_lang = 'fr' %}
 {% if path == '/en' or path|startswith('/en/') or path == 'en' or path|startswith('en/') %}
   {% set current_lang = 'en' %}
 {% elif path == '/fr' or path|startswith('/fr/') %}
   {% set current_lang = 'fr' %}
+{% elif not is_blog and ('://www.greengages.org/en' in main_page_url or '://greengages.org/en' in main_page_url) %}
+  {# HubSpot can omit the language prefix from request.path on website pages. #}
+  {% set current_lang = 'en' %}
 {% elif not is_blog and is_in_editor and main_editor_lang|startswith('en') %}
   {# Global-content previews have no page path; hsLang carries the selected variation. #}
   {% set current_lang = 'en' %}

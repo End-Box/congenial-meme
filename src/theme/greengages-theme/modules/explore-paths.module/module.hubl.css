@@ -3,4 +3,4 @@
 .explore-paths__list a,
 .explore-paths__list a:visited,
 .explore-paths__list a:hover,
-.explore-paths__list a:focus-visible { color: var(--gg-gold, #c9a84c); }
+.explore-paths__list a:focus-visible { color: var(--color-accent); }

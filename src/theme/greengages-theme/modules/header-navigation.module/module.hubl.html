@@ -2,11 +2,15 @@
 {% set header_path = request.path|default('')|lower %}
 {% set header_is_blog = group or (content and content.post_body) or simple_list_page or tag or blog_author %}
 {% set main_editor_lang = request.query_dict.hsLang|default(request.query_dict.hslang|default(request.query_dict.language|default('')))|lower %}
+{% set main_page_url = content.absolute_url|default(request.full_url|default(''))|lower %}
 {% set header_lang = 'fr' %}
 {% if header_path == '/en' or header_path|startswith('/en/') or header_path == 'en' or header_path|startswith('en/') %}
   {% set header_lang = 'en' %}
 {% elif header_path == '/fr' or header_path|startswith('/fr/') %}
   {% set header_lang = 'fr' %}
+{% elif not header_is_blog and ('://www.greengages.org/en' in main_page_url or '://greengages.org/en' in main_page_url) %}
+  {# Match the public website URL when HubSpot strips /en from request.path. #}
+  {% set header_lang = 'en' %}
 {% elif not header_is_blog and is_in_editor and main_editor_lang|startswith('en') %}
   {# Keep global-content preview selection aligned with the main header variation. #}
   {% set header_lang = 'en' %}

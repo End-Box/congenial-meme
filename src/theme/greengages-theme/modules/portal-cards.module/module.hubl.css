@@ -2,4 +2,4 @@
 .portal-cards .button,
 .portal-cards .button:visited,
 .portal-cards .button:hover,
-.portal-cards .button:focus-visible { color: var(--gg-gold, #c9a84c); }
+.portal-cards .button:focus-visible { color: var(--color-accent); }
