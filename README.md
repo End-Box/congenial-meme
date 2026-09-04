@@ -40,6 +40,6 @@ hs project upload
 ## Header menu language setup (HubSpot)
 1. In HubSpot, go to **Website > Navigation**.
 2. Create two menus: **Green Gage’s Header FR** and **Green Gage’s Header EN**.
-3. In each language variation of the Site Header global partial, configure the single `Header navigation` module with the corresponding menu.
-4. Keep the website and blog pages attached to their published multilingual variants; the native language switcher derives its labels and destinations from those relationships.
-5. Website and blog templates inherit this global partial from the base layout, so do not add a separate menu module to either blog template.
+3. In global content for the Site Header partial, configure `Header Menu FR` and `Header Menu EN` modules.
+4. The header selects EN on `/en` pages and FR on `/fr` or root pages, with fixed `English` and `Français` labels.
+5. Blog language links use the explicit published `/en` and `/fr` listing URLs rather than the invalid bare blog root.

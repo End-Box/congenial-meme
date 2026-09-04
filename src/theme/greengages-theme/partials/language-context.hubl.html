@@ -5,6 +5,8 @@
   - This HubSpot blog's published listing variants are /fr and /en
 #}
 {% set path = request.path|default('')|lower %}
+{% set is_blog_post = content and content.post_body %}
+{% set is_blog = group or is_blog_post or simple_list_page or tag or blog_author %}
 {% set current_lang = 'fr' %}
 {% if path == '/en' or path|startswith('/en/') or path == 'en' or path|startswith('en/') %}
   {% set current_lang = 'en' %}
@@ -19,4 +21,8 @@
 {% endif %}
 {% set main_site_en_url = 'https://www.greengages.org/en' %}
 {% set main_site_fr_url = 'https://www.greengages.org/' %}
+{% set blog_listing_en_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/en' %}
+{% set blog_listing_fr_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/fr' %}
 {% set website_home_url = main_site_en_url if current_lang == 'en' else main_site_fr_url %}
+{% set language_en_url = blog_listing_en_url if is_blog else main_site_en_url %}
+{% set language_fr_url = blog_listing_fr_url if is_blog else main_site_fr_url %}

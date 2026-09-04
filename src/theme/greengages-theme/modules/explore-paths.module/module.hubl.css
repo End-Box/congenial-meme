@@ -1,2 +1,6 @@
 .explore-paths__list { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.8rem; }
 .explore-paths--lined .explore-paths__list li { border-left: 3px solid var(--color-border); }
+.explore-paths__list a,
+.explore-paths__list a:visited,
+.explore-paths__list a:hover,
+.explore-paths__list a:focus-visible { color: var(--gg-gold, #c9a84c); }
