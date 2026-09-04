@@ -37,7 +37,7 @@
             {% if post.tag_list %}
               <p class="section-kicker">{% for topic in post.tag_list %}#{{ topic.name }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
             {% endif %}
-            <p><a href="{{ post.absolute_url }}">Read more</a></p>
+            <p><a class="blog-card__read-more" href="{{ post.absolute_url }}">Read more</a></p>
           </article>
         {% endfor %}
       </div>
