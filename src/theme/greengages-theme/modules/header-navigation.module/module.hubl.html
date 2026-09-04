@@ -20,7 +20,9 @@
   else module.blog_fr_menu %}
 
 {% if selected_menu %}
-  {% menu "resolved_header_menu" id=selected_menu, flow="horizontal", flyouts="true", max_levels="2" %}
+  <div class="site-header__resolved-menu" data-menu-context="{{ header_context }}" data-menu-id="{{ selected_menu }}">
+    {% menu "resolved_header_menu" id=selected_menu, overrideable=false, flow="horizontal", flyouts="true", max_levels="2" %}
+  </div>
 {% elif is_in_editor %}
   <p class="site-header__menu-notice">Select the {{ header_context|replace('_', ' ') }} menu in Contextual Header Navigation.</p>
 {% endif %}
