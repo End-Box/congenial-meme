@@ -26,3 +26,15 @@
 {% set website_home_url = main_site_en_url if current_lang == 'en' else main_site_fr_url %}
 {% set language_en_url = blog_listing_en_url if is_blog else main_site_en_url %}
 {% set language_fr_url = blog_listing_fr_url if is_blog else main_site_fr_url %}
+{% if is_blog_post %}
+  {% set translated_en = content.translated_content['en']|default(content.translated_content['en-us']) %}
+  {% set translated_fr = content.translated_content['fr']|default(content.translated_content['fr-fr']) %}
+  {% if current_lang == 'en' %}
+    {% set language_en_url = content.absolute_url %}
+    {% set language_fr_url = translated_fr.absolute_url|default(blog_listing_fr_url) %}
+  {% else %}
+    {% set language_en_url = translated_en.absolute_url|default(blog_listing_en_url) %}
+    {% set language_fr_url = content.absolute_url %}
+  {% endif %}
+{% endif %}
+{% set header_context = ('blog_' if is_blog else 'main_') ~ current_lang %}

@@ -1,0 +1,11 @@
+{% include '../../partials/language-context.hubl.html' %}
+{% set selected_menu = module.main_en_menu if header_context == 'main_en'
+  else module.main_fr_menu if header_context == 'main_fr'
+  else module.blog_en_menu if header_context == 'blog_en'
+  else module.blog_fr_menu %}
+
+{% if selected_menu %}
+  {% menu "resolved_header_menu" id=selected_menu, flow="horizontal", flyouts="true", max_levels="2" %}
+{% elif is_in_editor %}
+  <p class="site-header__menu-notice">Select the {{ header_context|replace('_', ' ') }} menu in Contextual Header Navigation.</p>
+{% endif %}

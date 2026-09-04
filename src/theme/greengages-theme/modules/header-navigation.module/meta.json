@@ -1,0 +1,6 @@
+{
+  "global": false,
+  "label": "Contextual Header Navigation",
+  "is_available_for_new_content": false,
+  "host_template_types": ["PAGE", "BLOG_LISTING", "BLOG_POST"]
+}
