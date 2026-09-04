@@ -8,7 +8,7 @@
       {% for item in module.items %}
         {% set href = item.link.href|default(item.link.url.href|default('')) %}
         <li class="ecosystem-card{% if item.featured %} ecosystem-card--featured{% endif %}">
-          <p class="section-kicker">{{ item.label }}</p>
+          <p class="section-kicker">{{ item.ecosystem_link_category }}</p>
           <h3 class="ecosystem-card__title">{{ item.title }}</h3>
           <p class="ecosystem-card__description">{{ item.description }}</p>
           {% if href %}<p><a class="ecosystem-card__cta" href="{{ href }}">{{ item.cta_text|default('Explore') }}</a></p>{% endif %}
