@@ -1,0 +1,152 @@
+[
+  {
+    "name": "brand",
+    "label": "Brand",
+    "type": "group",
+    "children": [
+      {
+        "name": "logo",
+        "label": "Logo",
+        "type": "image",
+        "responsive": true,
+        "resizable": true
+      },
+      {
+        "name": "favicon",
+        "label": "Favicon",
+        "type": "image"
+      }
+    ]
+  },
+  {
+    "name": "colors",
+    "label": "Colors",
+    "type": "group",
+    "children": [
+      {
+        "name": "background",
+        "label": "Page background",
+        "type": "color",
+        "default": {
+          "color": "#1a2e1a",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "surface",
+        "label": "Surface",
+        "type": "color",
+        "default": {
+          "color": "#223b22",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "text",
+        "label": "Body text",
+        "type": "color",
+        "default": {
+          "color": "#f2ede4",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "muted_text",
+        "label": "Muted text",
+        "type": "color",
+        "default": {
+          "color": "#d7cfbf",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent",
+        "label": "Accent",
+        "type": "color",
+        "default": {
+          "color": "#c9a84c",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "border",
+        "label": "Border",
+        "type": "color",
+        "default": {
+          "color": "#536b4a",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "name": "typography",
+    "label": "Typography",
+    "type": "group",
+    "children": [
+      {
+        "name": "font_body",
+        "label": "Body font",
+        "type": "font",
+        "default": {
+          "font": "Inter",
+          "fallback": "sans-serif",
+          "font_set": "GOOGLE"
+        }
+      },
+      {
+        "name": "font_display",
+        "label": "Display font",
+        "type": "font",
+        "default": {
+          "font": "Playfair Display",
+          "fallback": "serif",
+          "font_set": "GOOGLE"
+        }
+      },
+      {
+        "name": "base_font_size",
+        "label": "Base font size",
+        "type": "number",
+        "default": 17,
+        "min": 14,
+        "max": 20,
+        "step": 1
+      }
+    ]
+  },
+  {
+    "name": "layout",
+    "label": "Layout",
+    "type": "group",
+    "children": [
+      {
+        "name": "content_max_width",
+        "label": "Content max width",
+        "type": "number",
+        "default": 1120,
+        "min": 920,
+        "max": 1500,
+        "step": 10
+      },
+      {
+        "name": "section_spacing",
+        "label": "Section spacing",
+        "type": "number",
+        "default": 72,
+        "min": 32,
+        "max": 140,
+        "step": 4
+      },
+      {
+        "name": "radius",
+        "label": "Card radius",
+        "type": "number",
+        "default": 14,
+        "min": 0,
+        "max": 36,
+        "step": 1
+      }
+    ]
+  }
+]

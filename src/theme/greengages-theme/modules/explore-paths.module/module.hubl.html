@@ -1,0 +1,13 @@
+<section class="section explore-paths explore-paths--{{ module.style_variant }}" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
+  <div class="container flow flow-lg">
+    <h2 class="section-heading">{{ module.heading }}</h2>
+    <ol class="explore-paths__list">
+      {% for path in module.paths %}
+        <li class="surface-card">
+          <h3>{{ path.title }}</h3>
+          <p class="section-body">{{ path.summary }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

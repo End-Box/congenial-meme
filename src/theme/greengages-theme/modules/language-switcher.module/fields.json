@@ -1,0 +1,7 @@
+[
+  {"name":"show_switcher","label":"Show switcher","type":"boolean","default":true},
+  {"name":"current_language","label":"Current language","type":"choice","display":"select","choices":[["fr","French (FR)"],["en","English (EN)"]],"default":"fr"},
+  {"name":"french_url","label":"French URL","type":"url","default":{"href":"/","type":"EXTERNAL"}},
+  {"name":"english_url","label":"English URL","type":"url","default":{"href":"/en","type":"EXTERNAL"}},
+  {"name":"aria_label","label":"Accessible label","type":"text","default":"Language switcher"}
+]

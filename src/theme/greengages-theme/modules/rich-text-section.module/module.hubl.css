@@ -1,0 +1,2 @@
+.rich-text-section--narrow { max-width: 64ch; }
+.rich-text-section .section-body :where(p, ul, ol) { margin-top: 0.7rem; }

@@ -1,0 +1,51 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Green Gage’s Blog Listing
+-->
+{% extends './layout/base.hubl.html' %}
+{% block body_class %}theme-blog{% endblock body_class %}
+{% block body %}
+<section class="section blog-listing">
+  <div class="container flow flow-lg">
+    {% if blog_author %}
+      <h1 class="section-heading">{{ blog_author.display_name }}</h1>
+    {% elif tag %}
+      <h1 class="section-heading">#{{ tag }}</h1>
+    {% else %}
+      <h1 class="section-heading">{{ group.public_title|default('Blog') }}</h1>
+    {% endif %}
+
+    {% if simple_list_page %}
+      <ul class="flow flow-sm">
+        {% for post in contents %}
+          <li><a href="{{ post.absolute_url }}">{{ post.name }}</a> — {{ post.publish_date|datetimeformat('%Y-%m-%d') }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div class="card-grid card-grid--three">
+        {% for post in contents %}
+          <article class="surface-card blog-card flow flow-sm">
+            <a href="{{ post.absolute_url }}" class="blog-card__link">
+              {% if post.featured_image %}
+                <img src="{{ post.featured_image }}" alt="{{ post.featured_image_alt_text|default(post.name) }}" loading="lazy">
+              {% endif %}
+              <h2>{{ post.name }}</h2>
+            </a>
+            <p class="section-kicker">{{ post.publish_date|datetimeformat('%B %e, %Y') }}{% if post.blog_post_author %} · {{ post.blog_post_author.display_name }}{% endif %}</p>
+            <p class="section-body">{{ post.post_summary|striptags|truncate(180, True, '…') }}</p>
+            {% if post.tag_list %}
+              <p class="section-kicker">{% for topic in post.tag_list %}#{{ topic.name }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+            {% endif %}
+            <p><a class="blog-card__read-more" href="{{ post.absolute_url }}">Read more</a></p>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <nav aria-label="Pagination" class="flow">
+      {{ blog_page_link('prev') }} {{ blog_page_link('next') }}
+    </nav>
+  </div>
+</section>
+{% endblock body %}

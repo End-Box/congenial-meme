@@ -1,0 +1,70 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Consulting
+  screenshotPath: ../images/template-consulting.png
+-->
+{% extends './layout/base.hubl.html' %}
+{% block body_class %}theme-consulting{% endblock body_class %}
+
+{% block body %}
+  {% dnd_area 'consulting_main', label='Consulting page content', class='consulting-page' %}
+    {% dnd_section max_width=780, padding={"top": 72, "bottom": 36} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text', label='Consulting introduction', html="<div class='flow flow-md'><p class='consulting-page__eyebrow'>Green Gage's</p><h1>Cannabis Aroma Intelligence</h1><p class='consulting-page__lead'>The conventional <em>indica / sativa / hybrid</em> system is a botanical classification being used as a consumer-experience guide. It does not reliably predict flavour, effect, or purchase behaviour.</p><p class='consulting-page__lead'><strong>There is a better map.</strong></p></div>" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=780, padding={"top": 36, "bottom": 36} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text', label='Framework', html="<div class='consulting-page__section flow flow-md'><p class='consulting-page__eyebrow'>The framework</p><h2>Cannabis Aroma Intelligence Framework</h2><p>Terpene profiles provide a more meaningful basis for differentiating a cannabis portfolio. The framework maps a company's strain portfolio across three publicly revealed aroma clusters:</p><ul class='consulting-page__clusters'><li>Fruity</li><li>Dessert</li><li>Earthy</li></ul></div>" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=780, padding={"top": 36, "bottom": 36} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text', label='Case study', html="<div class='consulting-page__section flow flow-md'><p class='consulting-page__eyebrow'>Case study</p><h2>A more useful portfolio question</h2><div class='consulting-page__case-study flow flow-sm'><p>A leading Canadian licensed producer used the framework to shift the portfolio question from <em>&ldquo;Do we have enough indica?&rdquo;</em> toward <em>&ldquo;Which aroma clusters are undersupplied in our range?&rdquo;</em></p><p>The resulting intelligence informed strain selection and product development decisions.</p></div></div>" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=780, padding={"top": 36, "bottom": 36} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text', label='Buyer context', html="<div class='consulting-page__section flow flow-md'><p class='consulting-page__eyebrow'>Buyer context</p><h2>Where the intelligence applies</h2><ul class='consulting-page__buyers'><li><strong>Licensed Producers</strong><span>Portfolio strategy</span></li><li><strong>Retailers</strong><span>Inventory curation</span></li><li><strong>Brands</strong><span>Positioning and differentiation</span></li><li><strong>Multi-State Operators</strong><span>Cross-market coherence</span></li></ul></div>" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=780, padding={"top": 36, "bottom": 36} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text', label='Value statement', html="<div class='consulting-page__section flow flow-md'><p class='consulting-page__eyebrow'>The point of view</p><h2>The data is reproducible.<br>The interpretation is not.</h2><p>Working with Green Gage's means the framework comes with a point of view. The differentiator is not simply having data; it is interpreting portfolio structure coherently enough to inform decisions.</p></div>" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=780, padding={"top": 36, "bottom": 72} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/rich_text', label='Contact introduction', html="<div class='consulting-page__section flow flow-md'><p class='consulting-page__eyebrow'>Contact</p><h2>Book a discovery conversation</h2><p>For consulting enquiries, write to tgage.business@gmail.com or use the form below.</p></div>" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module path='@hubspot/form', label='Consulting contact form' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+{% endblock body %}

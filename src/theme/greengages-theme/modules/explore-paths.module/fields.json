@@ -1,0 +1,74 @@
+[
+  {
+    "name": "section_id",
+    "label": "Section ID (optional)",
+    "type": "text"
+  },
+  {
+    "name": "region_label",
+    "label": "Region label (optional)",
+    "type": "text"
+  },
+  {
+    "name": "style_variant",
+    "label": "Style variant",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "default",
+        "Default"
+      ],
+      [
+        "lined",
+        "Lined"
+      ]
+    ],
+    "default": "lined"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "How to explore"
+  },
+  {
+    "name": "paths",
+    "label": "Paths",
+    "type": "group",
+    "occurrence": {
+      "min": 3,
+      "max": 6,
+      "default": 3,
+      "sorting_label_field": "title"
+    },
+    "children": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Start with a theme"
+      },
+      {
+        "name": "summary",
+        "label": "Summary",
+        "type": "text",
+        "default": "A practical first move for readers."
+      }
+    ],
+    "default": [
+      {
+        "title": "Follow one thread",
+        "summary": "Choose a recurring concept and track it through essays and glossary pages."
+      },
+      {
+        "title": "Use the glossary",
+        "summary": "Read definitions as doors into larger research pathways."
+      },
+      {
+        "title": "Move across media",
+        "summary": "Pair written pieces with podcast and video conversations."
+      }
+    ]
+  }
+]

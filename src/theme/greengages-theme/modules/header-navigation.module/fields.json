@@ -1,0 +1,22 @@
+[
+  {
+    "name": "main_en_menu",
+    "label": "Main English menu",
+    "type": "menu"
+  },
+  {
+    "name": "main_fr_menu",
+    "label": "Main French menu",
+    "type": "menu"
+  },
+  {
+    "name": "blog_en_menu",
+    "label": "Blog English menu",
+    "type": "menu"
+  },
+  {
+    "name": "blog_fr_menu",
+    "label": "Blog French menu",
+    "type": "menu"
+  }
+]

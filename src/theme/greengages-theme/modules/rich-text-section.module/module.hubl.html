@@ -1,0 +1,7 @@
+<section class="section" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
+  <div class="container rich-text-section rich-text-section--{{ module.style_variant }} flow flow-md">
+    {% if module.kicker %}<p class="section-kicker">{{ module.kicker }}</p>{% endif %}
+    <h2 class="section-heading">{{ module.heading }}</h2>
+    <div class="section-body">{{ module.content }}</div>
+  </div>
+</section>

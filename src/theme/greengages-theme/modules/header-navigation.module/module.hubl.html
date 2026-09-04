@@ -1,0 +1,54 @@
+{# Modules cannot resolve partial includes outside their module directory after project packaging. #}
+{% set header_path = request.path|default('')|lower %}
+{% set header_is_blog = group or (content and content.post_body) or simple_list_page or tag or blog_author %}
+{% set main_editor_lang = request.query_dict.hsLang|default(request.query_dict.hslang|default(request.query_dict.language|default('')))|lower %}
+{% set main_page_url = content.absolute_url|default(request.full_url|default(''))|lower %}
+{% set header_lang = 'fr' %}
+{% if header_path == '/en' or header_path|startswith('/en/') or header_path == 'en' or header_path|startswith('en/') %}
+  {% set header_lang = 'en' %}
+{% elif header_path == '/fr' or header_path|startswith('/fr/') %}
+  {% set header_lang = 'fr' %}
+{% elif not header_is_blog and ('://www.greengages.org/en' in main_page_url or '://greengages.org/en' in main_page_url) %}
+  {# Match the public website URL when HubSpot strips /en from request.path. #}
+  {% set header_lang = 'en' %}
+{% elif not header_is_blog and is_in_editor and main_editor_lang|startswith('en') %}
+  {# Keep global-content preview selection aligned with the main header variation. #}
+  {% set header_lang = 'en' %}
+{% elif content and content.language and content.language.languageTag and content.language.languageTag|lower|startswith('en') %}
+  {% set header_lang = 'en' %}
+{% elif group and group.language and group.language.languageTag and group.language.languageTag|lower|startswith('en') %}
+  {% set header_lang = 'en' %}
+{% elif html_lang and html_lang|lower|startswith('en') %}
+  {% set header_lang = 'en' %}
+{% endif %}
+{% set header_context = ('blog_' if header_is_blog else 'main_') ~ header_lang %}
+{% set selected_menu = module.main_en_menu if header_context == 'main_en'
+  else module.main_fr_menu if header_context == 'main_fr'
+  else module.blog_en_menu if header_context == 'blog_en'
+  else module.blog_fr_menu %}
+
+{% macro render_menu_items(items, depth) %}
+  <ul>
+    {% for item in items %}
+      <li class="hs-menu-item hs-menu-depth-{{ depth }}{{ ' active' if item.activeNode }}{{ ' active-branch' if item.activeBranch }}">
+        <a href="{{ item.url }}"{% if item.linkTarget %} target="{{ item.linkTarget }}"{% endif %}{% if item.activeNode %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {% if item.children %}{{ render_menu_items(item.children, depth + 1) }}{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% if selected_menu %}
+  {% set selected_menu_tree = menu(selected_menu) %}
+  <div class="site-header__resolved-menu" data-menu-context="{{ header_context }}" data-menu-id="{{ selected_menu }}">
+    {% if selected_menu_tree and selected_menu_tree.children %}
+      <div class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal">
+        {{ render_menu_items(selected_menu_tree.children, 1) }}
+      </div>
+    {% elif is_in_editor %}
+      <p class="site-header__menu-notice">The selected {{ header_context|replace('_', ' ') }} menu has no published items.</p>
+    {% endif %}
+  </div>
+{% elif is_in_editor %}
+  <p class="site-header__menu-notice">Select the {{ header_context|replace('_', ' ') }} menu in Contextual Header Navigation.</p>
+{% endif %}

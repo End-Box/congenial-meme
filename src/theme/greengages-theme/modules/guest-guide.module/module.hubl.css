@@ -1,0 +1,6 @@
+.guest-guide__eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; color: var(--color-muted); margin: 0 0 .4rem; }
+.guest-guide__intro { max-width: 72ch; }
+.guest-guide__cards { list-style:none; margin:0; padding:0; display:grid; gap:1rem; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+.guest-guide__card { border:1px solid var(--color-border); background:var(--color-surface); border-radius:var(--radius); padding:1rem; }
+.guest-guide__tag { display:inline-block; font-size:.78rem; padding:.1rem .45rem; border:1px solid var(--color-border); border-radius:999px; margin:.2rem .35rem 0 0; color:var(--color-muted); }
+.guest-guide__episode-link { text-decoration:none; }

@@ -1,0 +1,10 @@
+{% if module.show_switcher %}
+  {% set fr_href = module.french_url.href|default(module.french_url.url.href|default('/')) %}
+  {% set en_href = module.english_url.href|default(module.english_url.url.href|default('/en')) %}
+  <nav class="language-switcher language-switcher--fallback" aria-label="{{ module.aria_label|default('Language switcher') }}">
+    <ul>
+      {% if fr_href %}<li><a href="{{ fr_href }}" {% if module.current_language == 'fr' %}aria-current="page"{% endif %}>FR</a></li>{% endif %}
+      {% if en_href %}<li><a href="{{ en_href }}" {% if module.current_language == 'en' %}aria-current="page"{% endif %}>EN</a></li>{% endif %}
+    </ul>
+  </nav>
+{% endif %}

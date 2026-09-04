@@ -1,0 +1,13 @@
+[
+  {"name":"section_id","label":"Section ID (optional)","type":"text"},
+  {"name":"heading","label":"Heading","type":"text","default":"The Green Gage’s Ecosystem"},
+  {"name":"intro","label":"Intro","type":"richtext"},
+  {"name":"items","label":"Ecosystem links","type":"group","occurrence":{"min":1,"max":10,"default":10,"sorting_label_field":"title"},"children":[
+    {"name":"title","label":"Title","type":"text","default":"Platform"},
+    {"name":"ecosystem_link_category","label":"Platform/category label","type":"text","default":"Channel"},
+    {"name":"description","label":"Description","type":"text","default":"Add a medium-length platform description here."},
+    {"name":"link","label":"URL","type":"url","supported_types":["EXTERNAL","CONTENT","BLOG"]},
+    {"name":"cta_text","label":"CTA text","type":"text","default":"Explore"},
+    {"name":"featured","label":"Featured","type":"boolean","default":false}
+  ]}
+]

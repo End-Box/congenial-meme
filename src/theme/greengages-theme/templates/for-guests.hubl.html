@@ -1,0 +1,35 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: For Guests
+  screenshotPath: ../images/template-standard-page.png
+-->
+{% extends './layout/base.hubl.html' %}
+{% set is_french = html_lang is string and html_lang|lower|startswith('fr') %}
+{% block body %}
+{% dnd_area 'for_guests_main', class='body-container-wrapper' %}
+  {% dnd_section max_width=980, padding={"top": 48, "bottom": 24} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/hero-threshold.module', heading=("Pour les invité·es" if is_french else "For Guests"), body=("Un espace de conversation calme et réfléchi pour explorer la conscience, la science, le sens, la nature et l’expérience vécue." if is_french else "A calm, thoughtful conversation space for exploring consciousness, science, meaning, nature, and lived experience."), primary_cta_label=("Proposer une conversation" if is_french else "Propose a conversation") %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+
+  {% dnd_section max_width=980, padding={"top": 8, "bottom": 14} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='editorial', heading=("Ce qu’est Green Gage’s" if is_french else "What Green Gage’s Is"), intro=("<p>Green Gage’s est un projet de recherche et d’éducation interdisciplinaire où les conversations longues relient science, philosophie, écologie, culture et expérience vécue.</p>" if is_french else "<p>Green Gage’s is an interdisciplinary research and educational project where long-form conversations connect science, philosophy, ecology, culture, and lived experience.</p>") %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+
+  {% dnd_section max_width=1080, padding={"top": 8, "bottom": 14} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='cards', heading=("Ce que les invité·es peuvent attendre" if is_french else "What Guests Can Expect"), cards=[{"title":("Une préparation sérieuse" if is_french else "Thoughtful preparation"),"description":("Chaque invité·e est abordé·e avec respect et attention." if is_french else "Each guest is approached with respect and care.")},{"title":("Un rythme calme" if is_french else "A calm rhythm"),"description":("La conversation laisse place à la nuance et aux idées complexes." if is_french else "The conversation leaves room for nuance and complex ideas.")},{"title":("Aucune pression de performance" if is_french else "No pressure to perform"),"description":("Formats audio-first, vidéo invité·e seul·e ou vidéo complète selon le contexte." if is_french else "Audio-first, guest-only video, or full video can adapt to comfort and context.")},{"title":("Une diffusion soignée" if is_french else "Careful publishing"),"description":("Édition, publication et formats dérivés gérés avec soin." if is_french else "Editing, publishing, and derivative formats handled with care.")}] %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+
+  {% dnd_section max_width=980, padding={"top": 8, "bottom": 14} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='editorial', heading=("Qui peut participer ?" if is_french else "Who Can Participate"), intro=("<p>Chercheur·euses, thérapeutes, éducateur·ices, auteur·ices, philosophes, écologues, voix de la conscience, psychologie et neurosciences, spécialistes de l’intégration psychédélique et fondateur·ices de projets porteurs de sens.</p>" if is_french else "<p>Researchers, therapists, educators, authors, philosophers, ecologists, consciousness/psychology/neuroscience voices, psychedelic integration specialists, and founders building meaningful tools or communities.</p>") %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+
+  {% dnd_section max_width=1080, padding={"top": 8, "bottom": 14} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='../modules/guest-guide.module', variant='episode_examples', heading=("Exemples d’épisodes" if is_french else "Examples of Past Videos"), cards=[{"title":"Mindfulness / Pleine conscience"},{"title":"Natural healing / Soin naturel"},{"title":"Trauma & nervous system"},{"title":"Metaphysics & meaning"}] %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+
+  {% dnd_section max_width=980, padding={"top": 0, "bottom": 64} %}{% dnd_column %}{% dnd_row %}
+    {% dnd_module path='@hubspot/form', title=("Proposer une conversation" if is_french else "Propose a conversation") %}{% end_dnd_module %}
+  {% end_dnd_row %}{% end_dnd_column %}{% end_dnd_section %}
+{% end_dnd_area %}
+{% endblock body %}

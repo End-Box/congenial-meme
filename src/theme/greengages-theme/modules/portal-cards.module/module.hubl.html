@@ -1,0 +1,18 @@
+<section class="section" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
+  <div class="container flow flow-lg">
+    <h2 class="section-heading">{{ module.heading }}</h2>
+    <div class="card-grid card-grid--three portal-cards portal-cards--{{ module.style_variant }}">
+      {% for card in module.cards %}
+        <article class="surface-card flow flow-sm">
+          <h3>{{ card.title }}</h3>
+          {% if card.description %}<p class="section-body">{{ card.description }}</p>{% endif %}
+          {% if card.link.href %}
+            <a class="button" href="{{ card.link.href }}"
+               {% if card.link.open_in_new_tab %}target="_blank"{% endif %}
+               {% if card.link.no_follow %}rel="nofollow noopener"{% endif %}>Explore</a>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

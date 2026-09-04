@@ -1,0 +1,46 @@
+[
+  {
+    "name": "section_id",
+    "label": "Section ID (optional)",
+    "type": "text"
+  },
+  {
+    "name": "region_label",
+    "label": "Region label (optional)",
+    "type": "text"
+  },
+  {
+    "name": "style_variant",
+    "label": "Style variant",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "default",
+        "Default"
+      ],
+      [
+        "narrow",
+        "Narrow"
+      ]
+    ],
+    "default": "default"
+  },
+  {
+    "name": "kicker",
+    "label": "Kicker (optional)",
+    "type": "text"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "About this website"
+  },
+  {
+    "name": "content",
+    "label": "Section content",
+    "type": "richtext",
+    "default": "<p>Use this module for editorial sections, essays, and reflective context.</p>"
+  }
+]

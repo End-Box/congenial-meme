@@ -1,0 +1,1 @@
+.manifesto .section-body :where(p, ul) + :where(p, ul) { margin-top: 0.8rem; }

@@ -1,0 +1,21 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: false
+  label: Start Here
+  screenshotPath: ../images/template-start-here.png
+-->
+{# Deprecated: use the standard-page template instead. #}
+{% extends './layout/base.hubl.html' %}
+
+{% block body %}
+  {% dnd_area 'start_here_main', class='body-container-wrapper' %}
+    {% dnd_section max_width=1100, padding={"top": 56, "bottom": 56} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/explore-paths.module' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+{% endblock body %}

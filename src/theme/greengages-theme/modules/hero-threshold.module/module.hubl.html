@@ -1,0 +1,13 @@
+<section class="section hero-threshold hero-threshold--{{ module.style_variant }}" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
+  <div class="container flow flow-lg">
+    <h1 class="section-heading">{{ module.title }}</h1>
+    {% if module.subtitle %}<p class="section-body">{{ module.subtitle }}</p>{% endif %}
+    {% if module.cta_text and module.cta_link.href %}
+      <a class="button button--primary" href="{{ module.cta_link.href }}"
+         {% if module.cta_link.open_in_new_tab %}target="_blank"{% endif %}
+         {% if module.cta_link.no_follow %}rel="nofollow noopener"{% endif %}>
+        {{ module.cta_text }}
+      </a>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,8 @@
+<section class="section" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}{% if module.region_label %} aria-label="{{ module.region_label }}"{% endif %}>
+  <div class="container">
+    <article class="manifesto manifesto--{{ module.style_variant }}{% if module.style_variant == 'surface' %} surface-card{% endif %} flow flow-md">
+      <h2 class="section-heading">{{ module.heading }}</h2>
+      <div class="section-body">{{ module.statement }}</div>
+    </article>
+  </div>
+</section>

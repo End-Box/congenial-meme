@@ -1,0 +1,70 @@
+{#
+  Shared language context
+  - Normal site FR pages are at /
+  - Normal site EN pages are under /en
+  - This HubSpot blog's published listing variants are /fr and /en
+#}
+{% set path = request.path|default('')|lower %}
+{% set is_blog_post = content and content.post_body %}
+{% set is_blog = group or is_blog_post or simple_list_page or tag or blog_author %}
+{% set main_editor_lang = request.query_dict.hsLang|default(request.query_dict.hslang|default(request.query_dict.language|default('')))|lower %}
+{% set main_page_url = content.absolute_url|default(request.full_url|default(''))|lower %}
+{% set current_lang = 'fr' %}
+{% if path == '/en' or path|startswith('/en/') or path == 'en' or path|startswith('en/') %}
+  {% set current_lang = 'en' %}
+{% elif path == '/fr' or path|startswith('/fr/') %}
+  {% set current_lang = 'fr' %}
+{% elif not is_blog and ('://www.greengages.org/en' in main_page_url or '://greengages.org/en' in main_page_url) %}
+  {# HubSpot can omit the language prefix from request.path on website pages. #}
+  {% set current_lang = 'en' %}
+{% elif not is_blog and is_in_editor and main_editor_lang|startswith('en') %}
+  {# Global-content previews have no page path; hsLang carries the selected variation. #}
+  {% set current_lang = 'en' %}
+{% elif content and content.language and content.language.languageTag and content.language.languageTag|lower|startswith('en') %}
+  {% set current_lang = 'en' %}
+{% elif group and group.language and group.language.languageTag and group.language.languageTag|lower|startswith('en') %}
+  {% set current_lang = 'en' %}
+{% elif html_lang and html_lang|lower|startswith('en') %}
+  {% set current_lang = 'en' %}
+{% endif %}
+{% set main_site_en_url = 'https://www.greengages.org/en' %}
+{% set main_site_fr_url = 'https://www.greengages.org/' %}
+{% set blog_listing_en_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/en' %}
+{% set blog_listing_fr_url = 'https://thegreengage-substack-342637523.hs-sites-na3.com/fr' %}
+{% set website_home_url = main_site_en_url if current_lang == 'en' else main_site_fr_url %}
+{% set language_en_url = blog_listing_en_url if is_blog else main_site_en_url %}
+{% set language_fr_url = blog_listing_fr_url if is_blog else main_site_fr_url %}
+{% if not is_blog %}
+  {% set main_switch_path = content.absolute_url|default(request.full_url|default(path))|replace('https://www.greengages.org', '')|replace('http://www.greengages.org', '')|replace('https://greengages.org', '')|replace('http://greengages.org', '')|split('?')|first %}
+  {% if not main_switch_path or main_switch_path|startswith('http') %}
+    {% set main_switch_path = path|default('/') %}
+  {% endif %}
+  {% if main_switch_path == '/en' or main_switch_path|startswith('/en/') %}
+    {% set language_en_path = main_switch_path %}
+  {% elif main_switch_path == '/' %}
+    {% set language_en_path = '/en' %}
+  {% else %}
+    {% set language_en_path = '/en' ~ main_switch_path %}
+  {% endif %}
+  {% if main_switch_path == '/en' %}
+    {% set language_fr_path = '/' %}
+  {% elif main_switch_path|startswith('/en/') %}
+    {% set language_fr_path = main_switch_path[3:] %}
+  {% else %}
+    {% set language_fr_path = main_switch_path %}
+  {% endif %}
+  {% set language_en_url = 'https://www.greengages.org' ~ language_en_path %}
+  {% set language_fr_url = 'https://www.greengages.org' ~ language_fr_path %}
+{% endif %}
+{% if is_blog_post %}
+  {% set translated_en = content.translated_content['en']|default(content.translated_content['en-us']) %}
+  {% set translated_fr = content.translated_content['fr']|default(content.translated_content['fr-fr']) %}
+  {% if current_lang == 'en' %}
+    {% set language_en_url = content.absolute_url %}
+    {% set language_fr_url = translated_fr.absolute_url|default(blog_listing_fr_url) %}
+  {% else %}
+    {% set language_en_url = translated_en.absolute_url|default(blog_listing_en_url) %}
+    {% set language_fr_url = content.absolute_url %}
+  {% endif %}
+{% endif %}
+{% set header_context = ('blog_' if is_blog else 'main_') ~ current_lang %}

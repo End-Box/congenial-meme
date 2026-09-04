@@ -1,0 +1,25 @@
+.recent-posts__item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.recent-posts__link {
+  text-decoration: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.recent-posts__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.recent-posts__title {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  font-size: 1rem;
+  line-height: 1.35;
+}

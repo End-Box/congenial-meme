@@ -1,0 +1,2 @@
+.cta-band { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; justify-content: space-between; }
+.cta-band--subtle { border-style: dashed; }

@@ -1,0 +1,21 @@
+{
+  "label": "Green Gage Editorial Theme",
+  "preview_path": "templates/home.hubl.html",
+  "screenshot_path": "images/theme-preview.png",
+  "enable_domain_stylesheets": false,
+  "author": {
+    "name": "Your Team",
+    "email": "dev@example.com"
+  },
+  "documentation_url": "https://developers.hubspot.com/docs/cms",
+  "responsive_breakpoints": [
+    {
+      "name": "mobile",
+      "mediaQuery": "@media (max-width: 767px)",
+      "previewWidth": {
+        "value": 390,
+        "units": "px"
+      }
+    }
+  ]
+}

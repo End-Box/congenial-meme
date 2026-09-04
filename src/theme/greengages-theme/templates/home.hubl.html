@@ -1,0 +1,77 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Home
+  screenshotPath: ../images/template-home.png
+-->
+{% extends './layout/base.hubl.html' %}
+{% block body %}
+  {% dnd_area 'home_main', class='body-container-wrapper' %}
+    {% dnd_section max_width=1100, padding={"top": 44, "bottom": 28} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/hero-threshold.module' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=980, padding={"top": 28, "bottom": 28} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/rich-text-section.module',
+            heading='About this website',
+            content='<p>This space gathers writing, research fragments, and practical pathways for thoughtful exploration.</p>',
+            section_id='about-this-website'
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=1100, padding={"top": 20, "bottom": 28} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/portal-cards.module' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=980, padding={"top": 20, "bottom": 28} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/manifesto-section.module' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=1100, padding={"top": 20, "bottom": 28} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/explore-paths.module' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=1100, padding={"top": 20, "bottom": 28} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/ecosystem-links.module' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section max_width=980, padding={"top": 20, "bottom": 56} %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path='../modules/closing-reflection.module' %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+{% endblock body %}

@@ -1,0 +1,24 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Green Gage’s Blog Post
+-->
+{% extends './layout/base.hubl.html' %}
+{% block body_class %}theme-blog{% endblock body_class %}
+{% block body %}
+<article class="section blog-post">
+  <div class="container flow flow-lg">
+    <header class="flow flow-sm blog-post__hero">
+      <h1 class="section-heading">{{ content.name }}</h1>
+      <p class="section-kicker">{{ content.publish_date|datetimeformat('%B %e, %Y') }}{% if content.blog_post_author %} · {{ content.blog_post_author.display_name }}{% endif %}</p>
+      {% if content.tag_list %}
+        <p class="section-kicker">{% for topic in content.tag_list %}#{{ topic.name }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+      {% endif %}
+      {% if content.featured_image %}
+        <img src="{{ content.featured_image }}" alt="{{ content.featured_image_alt_text|default(content.name) }}" loading="eager">
+      {% endif %}
+    </header>
+    <div class="blog-post__body flow flow-md">{{ content.post_body }}</div>
+  </div>
+</article>
+{% endblock body %}

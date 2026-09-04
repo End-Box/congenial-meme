@@ -1,0 +1,5 @@
+{% macro attrs(section_id, section_class, region_label='') %}
+  class="{{ section_class }}"
+  {% if section_id %}id="{{ section_id }}"{% endif %}
+  {% if region_label %}aria-label="{{ region_label }}"{% endif %}
+{% endmacro %}

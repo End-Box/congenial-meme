@@ -1,0 +1,41 @@
+[
+  {
+    "name": "section_id",
+    "label": "Section ID (optional)",
+    "type": "text"
+  },
+  {
+    "name": "region_label",
+    "label": "Region label (optional)",
+    "type": "text"
+  },
+  {
+    "name": "style_variant",
+    "label": "Style variant",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "default",
+        "Default"
+      ],
+      [
+        "surface",
+        "Surface Card"
+      ]
+    ],
+    "default": "surface"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Why this project exists"
+  },
+  {
+    "name": "statement",
+    "label": "Statement",
+    "type": "richtext",
+    "default": "<p>To create a careful, rigorous, and humane space for ideas that resist simplification.</p>"
+  }
+]
